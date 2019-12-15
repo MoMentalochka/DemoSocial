@@ -11,4 +11,6 @@
 .app-wrapper{
 background: rgb(82, 160, 248);
 width: 100%;
+height: 100vh;
+overflow:scroll;
 }

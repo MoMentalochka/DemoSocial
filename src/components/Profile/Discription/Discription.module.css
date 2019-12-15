@@ -1,9 +1,12 @@
 .discription{
 display: flex;
 width: 100%;
+height: 100%;
 margin: 0 auto;
 grid-area: l;
+
 }
 .discription img{
+  border-radius: 20px;
   height: 240px;
 }

@@ -1,0 +1,9 @@
+.discription{
+display: flex;
+width: 100%;
+margin: 0 auto;
+grid-area: l;
+}
+.discription img{
+  height: 240px;
+}

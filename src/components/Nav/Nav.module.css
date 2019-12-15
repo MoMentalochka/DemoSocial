@@ -1,0 +1,39 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.nav{
+ grid-area: n;
+ background: inherit;
+ padding-right: 50px;
+ width: 100%;
+display: flex;
+justify-content: center;
+}
+.nav ul{
+  width: 90%;
+  padding-top: 40px;
+  list-style: none;
+}
+.item{
+  margin: auto;
+  background: rgb(214, 223, 224);
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 8px;
+}
+li a{
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #000;
+  text-decoration: none;
+}
+li a :hover{
+
+  background-color: rgb(171, 200, 236);
+  text-decoration: underline;
+  margin-right: 2px;
+}
+

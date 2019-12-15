@@ -1,34 +1,14 @@
-.app-wrapper{
+.container{
   display: grid;
-  width: 1160px;
+  width: 1140px;
   margin: auto;
   grid-template-areas:"h h" 
-  "n c";
+  "n c"
+  "f f";
     grid-template-rows: 60px 1fr;
-    grid-template-columns: 1fr 10fr;
+    grid-template-columns: 3fr 10fr;
 }
-.header{
-  grid-area: h;
-  background: rgb(49, 160, 54);
-}
-.header img{
-  margin-left: 50px;
-  width: 40px;
-}
-.nav{
-  grid-area: n;
- background: rgb(184, 22, 22);
- padding-right: 50px;
-}
-.content{
-  grid-area: c;
-  width: 100%;
-  display: flex;
-  padding-left: 50px;
-  padding-top: 20px ;
-  background: rgb(184, 185, 202);
-  box-sizing: border-box;
-}
-.content img{
-  height: 100px;
+.app-wrapper{
+background: rgb(82, 160, 248);
+width: 100%;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Info.module.css';
 
-const Info = () =>{
+const Info = (props) =>{
     return <div className={styles.info}>
         <div className={styles.text}>
-            <h3>Вася Пупкин</h3>
-            <p>Изменить статус</p>
+            <h3><a href="#">{props.name +" "+ props.second_name}</a></h3>
+            <p><div className={styles.status}>Изменить статус</div></p>
         </div>
     </div>
 

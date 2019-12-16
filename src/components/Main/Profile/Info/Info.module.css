@@ -10,7 +10,13 @@ grid-area: r;
     height: 100%;
     background: rgb(214, 223, 224);
   }
-  .text h3{
+.text h3{
       font-size: 34px;
-  }
+}
+.text p{
+    opacity: 0.4;
+}
+.status{
+    cursor: pointer;
+}
   

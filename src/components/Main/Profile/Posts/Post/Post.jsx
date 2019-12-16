@@ -5,7 +5,7 @@ const Post = (props) =>{
     return (
         <div className={styles.post}>
             <div className={styles.title}>
-                <div><img src="https://soundex.ru/forum/uploads/monthly_2018_02/281B5641-5200-4E5F-8EC5-263CAE7D3F00.jpeg.caec995dd9714347878d3ee8e0841e43.jpeg" alt=""/></div>
+                <div><img src={props.avatar} alt=""/></div>
                 <div className={styles.name}> {props.name +" "+props.second__name[0]+"." }  </div>
                 
             </div>

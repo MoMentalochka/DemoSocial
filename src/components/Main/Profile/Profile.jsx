@@ -7,7 +7,7 @@ import Info from './Info/Info';
 const Profile = () =>{
     return <div className={styles.profile}>
     <Avatar/>
-    <Info/>
+    <Info name="Вася" second_name="Пупкин"/>
     <Posts/>
     </div>
     

@@ -19,7 +19,7 @@ a{
 
   display: flex;
   padding: 10px;
-  margin: 10px;
+  margin: 2px;
   background: rgb(214, 223, 224);
 }
 .active div{
@@ -35,3 +35,10 @@ a{
   padding: 10px;
   background: rgb(214, 223, 224);
 }
+img{
+  margin-right: 20px;
+  height: 50px;
+  width: 50px;
+  border: 2px solid rgb(30, 80, 190);
+  border-radius: 50%;
+  }

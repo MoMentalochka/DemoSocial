@@ -3,12 +3,12 @@
   margin: 0;
 }
 .nav{
- grid-area: n;
- background: inherit;
- padding-right: 50px;
- width: 100%;
-display: flex;
-justify-content: center;
+  grid-area: n;
+  background: inherit;
+  padding-right: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .nav ul{
   width: 90%;
@@ -29,11 +29,18 @@ li a{
   letter-spacing: 2px;
   color: #000;
   text-decoration: none;
+  transition: 1s ease
 }
 li a :hover{
-
-  background-color: rgb(171, 200, 236);
-  text-decoration: underline;
-  margin-right: 2px;
+  -moz-transform: translate(5px, 0px);
+  -webkit-transform: translate(5px, 0px);
+  -o-transform: translate(5px, 0px);
+  -ms-transform: translate(5px, 0px);
+  transform: translate(5px, 0px);
+  
+}
+a.active div{
+  text-decoration: none;
+  background: darkturquoise;
 }
 

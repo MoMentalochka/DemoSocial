@@ -1,9 +1,0 @@
-.footer{
-    grid-area: f;
-    background: rgb(238, 239, 240);
-    border: 2px solid #000;
-   display: flex;
-   justify-content: center;
-    width: 100%-4px;
-
-  }

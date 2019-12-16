@@ -9,20 +9,19 @@
     flex-wrap: wrap;
     box-sizing: border-box;
 }
-.img{
-    background-image: url(https://soundex.ru/forum/uploads/monthly_2018_02/281B5641-5200-4E5F-8EC5-263CAE7D3F00.jpeg.caec995dd9714347878d3ee8e0841e43.jpeg);
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-    background-position: center;
-    border: 1px solid rgb(30, 80, 190);
-    border-radius: 50%;
-    margin-right: 20px;
+.title img{
+margin-right: 20px;
+height: 50px;
+width: 50px;
+border: 2px solid rgb(30, 80, 190);
+border-radius: 50%;
 }
 .like img{
-    margin-top: 2px;
+    cursor: pointer;
+    border-radius: 50%;
     width: 20px;
-
+    height: 20px;
+    margin: 0;
 }
 .name{
     font-weight: 600;
@@ -47,4 +46,10 @@
 }
 .like{
  width: 100%;
+ display: inline-flex;
+ align-items: center;
+ margin: 10px 0 0 10px;
+}
+.like_count{
+
 }

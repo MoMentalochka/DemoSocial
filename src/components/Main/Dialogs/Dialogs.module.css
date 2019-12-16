@@ -10,6 +10,7 @@
 }
 a{
   text-decoration:  none;
+  color: #000;
 }
 .dialog_list{
   grid-area: dial;
@@ -21,8 +22,8 @@ a{
   margin: 10px;
   background: rgb(214, 223, 224);
 }
-.active{
- color: fuchsia;
+.active div{
+  background: darkturquoise;
 }
 
 .massages_list{

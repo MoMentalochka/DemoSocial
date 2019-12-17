@@ -6,7 +6,7 @@ const Nav = () => {
     return <div className={styles.nav}>
     <ul>
         <li>
-        <NavLink to="./profile" activeClassName={styles.active}>
+        <NavLink to="/profile" activeClassName={styles.active}>
         <div className={styles.item}>
           Profile
         </div>
@@ -14,7 +14,7 @@ const Nav = () => {
         </li>
 
         <li>
-        <NavLink to="./dialogs" activeClassName={styles.active}>
+        <NavLink to="/dialogs" activeClassName={styles.active}>
         <div className={styles.item}>
           Dialogs
         </div>
@@ -22,7 +22,7 @@ const Nav = () => {
         </li>
 
         <li>
-        <NavLink to="./news" activeClassName={styles.active}>
+        <NavLink to="/news" activeClassName={styles.active}>
         <div className={styles.item}>
           News
         </div>
@@ -30,14 +30,14 @@ const Nav = () => {
         </li>
 
         <li>
-        <NavLink to="./music" activeClassName={styles.active}>
+        <NavLink to="/music" activeClassName={styles.active}>
         <div className={styles.item}>
           Music
         </div>
         </NavLink>
         </li>
         <li>
-        <NavLink to="./settings" activeClassName={styles.active}>
+        <NavLink to="/settings" activeClassName={styles.active}>
         <div className={styles.item}>
           Settings
         </div>

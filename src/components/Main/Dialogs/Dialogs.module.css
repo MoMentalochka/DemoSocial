@@ -8,37 +8,3 @@
     grid-template-rows: 60px 1fr;
     grid-template-columns: 4fr 10fr;
 }
-a{
-  text-decoration:  none;
-  color: #000;
-}
-.dialog_list{
-  grid-area: dial;
-}
-.dialog_list_item{
-
-  display: flex;
-  padding: 10px;
-  margin: 2px;
-  background: rgb(214, 223, 224);
-}
-.active div{
-  background: darkturquoise;
-}
-
-.massages_list{
-  grid-area: mess;
-}
-.massages_list_item{
-  display: flex;
-  margin: 5px;
-  padding: 10px;
-  background: rgb(214, 223, 224);
-}
-img{
-  margin-right: 20px;
-  height: 50px;
-  width: 50px;
-  border: 2px solid rgb(30, 80, 190);
-  border-radius: 50%;
-  }

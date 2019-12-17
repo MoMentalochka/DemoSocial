@@ -12,14 +12,13 @@ const Posts = () =>{
         { id : '5', name:'Alexei', second__name : 'Michailov', like_counter : '14', avatar:'http://s019.radikal.ru/i605/1711/34/eada2b97814d.jpg'},
         { id : '6', name:'Oleg', second__name : 'Radzievskiy', like_counter : '15', avatar:'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false'}
     ]
+    let PostElements =
+    PostsData.map(p => <Post message={p.message} id={p.id} like_counter={p.like_counter} name={p.name} second__name={p.second__name} avatar={p.avatar} />)
+
 
     return (
         <div className={styles.posts}>
-            <Post message="Привет, я первый пропс" id={PostsData[0].id} like_counter={PostsData[0].like_counter} name={PostsData[0].name} second__name={PostsData[0].second__name} avatar={PostsData[0].avatar} />
-            <Post message="Привет, я второй пропс" id={PostsData[1].id} like_counter={PostsData[1].like_counter} name={PostsData[1].name} second__name={PostsData[1].second__name} avatar={PostsData[1].avatar} />
-            <Post message="Привет, я третий пропс" id={PostsData[2].id} like_counter={PostsData[2].like_counter} name={PostsData[2].name} second__name={PostsData[2].second__name} avatar={PostsData[2].avatar} />
-            <Post message="Привет, я четвёртый пропс" id={PostsData[3].id} like_counter={PostsData[3].like_counter} name={PostsData[3].name} second__name={PostsData[3].second__name} avatar={PostsData[3].avatar} />
-            <Post message="Привет, я пятый пропс" id={PostsData[4].id} like_counter={PostsData[4].like_counter} name={PostsData[4].name} second__name={PostsData[4].second__name} avatar={PostsData[4].avatar} />
+            { PostElements }
         </div>
     )
     

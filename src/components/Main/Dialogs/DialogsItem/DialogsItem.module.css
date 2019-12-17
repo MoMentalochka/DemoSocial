@@ -1,0 +1,29 @@
+a{
+  text-decoration:  none;
+  color: #000;
+}
+.dialog_list{
+  grid-area: dial;
+}
+.dialog_list_item{
+  display: flex;
+  padding: 10px;
+  margin: 2px;
+  background: rgb(214, 223, 224);
+}
+.dialog_list_item:hover{
+  background: rgb(186, 196, 197);
+}
+.active div{
+  background: darkturquoise;
+}
+.active div:hover{
+  background: darkturquoise;
+}
+img{
+  margin-right: 20px;
+  height: 50px;
+  width: 50px;
+  border: 2px solid rgb(30, 80, 190);
+  border-radius: 50%;
+  }

@@ -1,0 +1,21 @@
+.friend{
+    margin-top: 5px;
+    align-content: center;
+    width: 33%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+}
+.name{
+    align-items: flex-end;
+    display: flex;
+}
+.avatar{
+
+    display: flex;
+}
+img{
+    display: block;
+    margin: auto 20px ;
+}

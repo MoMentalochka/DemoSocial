@@ -1,7 +1,15 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {Rerender} from './Render';
-import state from './redux/state'
-Rerender(state);
+import {addPost} from './redux/state';
+
+
+export let Rerender = (state) =>{
+ReactDOM.render(<App state={state} addPost = {addPost}/>, document.getElementById('root'));
+
+}
+
    
 
 

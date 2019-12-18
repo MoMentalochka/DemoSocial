@@ -1,0 +1,15 @@
+.friends{
+    margin:0 auto ;
+    margin-top: 20px;
+    height: 165px;
+    display: flex;
+    width: 240px;
+    background: rgb(214, 223, 224);
+    border-radius: 20px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+    overflow: hidden;
+    
+}
+

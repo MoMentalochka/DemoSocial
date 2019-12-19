@@ -18,6 +18,7 @@ let state = {
                 { id: '5', name: 'Alexei', second__name: 'Michailov', avatar: 'http://s019.radikal.ru/i605/1711/34/eada2b97814d.jpg' },
                 { id: '6', name: 'Oleg', second__name: 'Radzievskiy',  avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' }
             ],
+            newPostText : "",
         },
         
     dialogsPage: {
@@ -40,20 +41,29 @@ let state = {
                 { id: '6', name: 'Oleg', second__name: 'Radzievskiy', like_counter: '15', avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' }
             ],
   
-}
+},
 
+     
 }
-
-export let addPost = (PostMessage) => {
+window.state = state;
+export let addPost = () => {
     let newPost = {
         id: 6,
         name: 'Franki',
         second__name: 'Alladay',
         like_counter: 0,
-        message: PostMessage,
+        message: state.profilePage.newPostText,
         avatar: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false'
     }
     state.profilePage.PostsData.push(newPost);
+    state.profilePage.newPostText = "";
+    Rerender(state);
+    
+}
+
+export let UpdateNewPostText = (newText) => {
+   
+    state.profilePage.newPostText = newText;
     Rerender(state);
 }
 export default state;

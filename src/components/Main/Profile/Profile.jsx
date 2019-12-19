@@ -4,7 +4,6 @@ import Posts from '../Profile/Posts/Posts';
 import Avatar from './Avatar/Avatar';
 import Info from './Info/Info';
 import Friends from './Friends/Friends';
-import { addPost } from '../../../redux/state';
 
 
 const Profile = (props) =>{
@@ -13,7 +12,7 @@ const Profile = (props) =>{
     
     <Friends FriendsData = { props.profilePage.FriendsData }/>
     <Info name="Вася" second_name="Пупкин"/>
-    <Posts PostsData = { props.profilePage.PostsData } addPost={addPost} />
+    <Posts PostsData = { props.profilePage.PostsData } addPost={props.addPost} newPostText = {props.profilePage.newPostText} UpdateNewPostText = {props.UpdateNewPostText} />
     </div>
     
 }

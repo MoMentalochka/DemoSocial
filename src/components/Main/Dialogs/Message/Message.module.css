@@ -1,10 +1,14 @@
 .massages_list{
   grid-area: mess;
+ 
 }
 .massages_list_item{
+  width: 100%;
+  height: 40px;
   display: flex;
+  background:rgb(214, 223, 224);
   margin: 5px;
   padding: 10px;
-  background: rgb(214, 223, 224);
+  border: 3px solid darkturquoise;
   border-radius: 0 20px 20px 20px;
 }

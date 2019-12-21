@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './Message/Message';
+import Form from './Message/Form/Form';
 
 const Dialogs = (props) => {
     // Данные Пользователей
@@ -12,27 +13,20 @@ const Dialogs = (props) => {
     let Messages=
         props.dialogsPage.MessagesData.map(m => <Message message={m.message} id={m.id}/>);
 
-    let newMessage = React.createRef();
-    let addMessage = () =>{
-        let text = newMessage.current.value;
-        alert(text);
-    }
+ 
+
+   
     return (
-       
         <div className={styles.dialogs}>
             <div className={styles.dialog_list}>
-            
                {DialogsItems}
-
             </div>
             <div className={styles.massages_list}>
-
-             { Messages }
-
-             <div className="Form">
-                <textarea ref = {newMessage}/>
-                <input type="button" onClick={addMessage} value="Отправить"/></div>
+                { Messages }
             </div>
+            <Form  MessageData = {props.dialogsPage} addMessage={props.addMessage} UpdateNewMessageText = {props.UpdateNewMessageText}/>
+            
         </div>
-    ) }
+    ) 
+}
 export default Dialogs;

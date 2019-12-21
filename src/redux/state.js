@@ -1,4 +1,4 @@
-import {Rerender} from '../Render';
+
 let state = {
     profilePage: {
         
@@ -24,12 +24,12 @@ let state = {
     dialogsPage: {
     
             MessagesData: [
-                { id: '1', message: 'Franki' },
-                { id: '2', message: 'Nikolay' },
-                { id: '3', message: 'Maksim' },
-                { id: '4', message: 'Ignat' },
-                { id: '5', message: 'Alexei' },
-                { id: '6', message: 'Oleg' },
+                { id: '1', message: 'First message' },
+                { id: '2', message: 'Second massage' },
+                { id: '3', message: 'Third message' },
+                { id: '4', message: 'Fourth message' },
+                { id: '5', message: 'Fifth message' },
+                { id: '6', message: 'sexth message' },
             ],
        
             usersData : [
@@ -40,15 +40,17 @@ let state = {
                 { id: '5', name: 'Alexei', second__name: 'Michailov', like_counter: '14', avatar: 'http://s019.radikal.ru/i605/1711/34/eada2b97814d.jpg' },
                 { id: '6', name: 'Oleg', second__name: 'Radzievskiy', like_counter: '15', avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' }
             ],
+            newMessageText : "",
   
 },
 
      
-}
-window.state = state;
-export let addPost = () => {
+};
+
+
+export const addPost = () => {
     let newPost = {
-        id: 6,
+        id: state.profilePage.PostsData.length+1,
         name: 'Franki',
         second__name: 'Alladay',
         like_counter: 0,
@@ -59,11 +61,30 @@ export let addPost = () => {
     state.profilePage.newPostText = "";
     Rerender(state);
     
-}
-
-export let UpdateNewPostText = (newText) => {
-   
-    state.profilePage.newPostText = newText;
+};
+export const UpdateNewPostText = (newPostText) => {
+    state.profilePage.newPostText = newPostText;
     Rerender(state);
+};
+export const addMessage = () => {
+    let newMessage = {
+        id: 6,
+        message: state.dialogsPage.newMessageText,
+    };
+    state.dialogsPage.MessagesData.push(newMessage);
+    state.dialogsPage.newMessageText = "";
+    Rerender(state);
+};
+export const UpdateNewMessageText = (newMessageText) => {
+    state.dialogsPage.newMessageText = newMessageText;
+    Rerender(state);
+};
+
+export let transfer = (observer) => {
+Rerender = observer;
 }
+let Rerender = () =>{
+    // Функция определется обсервером из index.js
+};
+
 export default state;

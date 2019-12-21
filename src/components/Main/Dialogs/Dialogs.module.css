@@ -2,9 +2,20 @@
   grid-area: c;
   padding: 10px;
   width: 100%;
-
+  position: relative;
   display: grid;
-  grid-template-areas:"dial mess";
-    grid-template-rows: 60px 1fr;
+  grid-template-areas:"dial mess"
+  "dial form";
+                    
+    grid-template-rows: auto 1fr;
     grid-template-columns: 4fr 10fr;
 }
+.massages_list{
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 460px;
+  overflow-y: scroll;
+  overflow-X: hidden;
+  width: 100%;
+}
+

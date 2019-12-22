@@ -9,8 +9,9 @@ import Music from './components/Main/Music/Music';
 import Settings from './components/Main/Settings/Settings'
 import {BrowserRouter, Route } from 'react-router-dom';
 
-
+debugger
 const App =(props) => {
+  window.props = props
   return (
     <BrowserRouter>
 
@@ -19,8 +20,8 @@ const App =(props) => {
       <Header/>
       <Nav/>
       <div className='app-wrapper-content'>
-        <Route path='/profile' render = { () => <Profile profilePage = { props.state.profilePage } addPost= {props.addPost} UpdateNewPostText = {props.UpdateNewPostText}/>}/>
-        <Route path='/dialogs' render = { () => <Dialogs dialogsPage = {props.state.dialogsPage} addMessage={props.addMessage} UpdateNewMessageText = {props.UpdateNewMessageText}/>}/>
+        <Route path='/profile' render = { () => <Profile addPost = {props.addPost} UpdateNewPostText = {props.UpdateNewPostText} profilePage ={props.state.profilePage }/>}/>
+        <Route path='/dialogs' render = { () => <Dialogs  addMessage = {props.addMessage} UpdateNewMessageText = {props.UpdateNewMessageText} dialogsPage ={props.state.dialogsPage }/>}/>
         <Route path='/news' component={News}/>
         <Route path='/music' component={Music}/>
         <Route path='/settings' component={Settings}/>

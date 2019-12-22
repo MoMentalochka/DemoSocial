@@ -12,11 +12,11 @@
     border: 3px solid darkturquoise;
 }
 .title img{
-margin-right: 20px;
-height: 50px;
-width: 50px;
-border: 2px solid rgb(30, 80, 190);
-border-radius: 50%;
+    margin-right: 20px;
+    height: 50px;
+    width: 50px;
+    border: 2px solid rgb(30, 80, 190);
+    border-radius: 50%;
 }
 .like img{
     cursor: pointer;
@@ -29,7 +29,6 @@ border-radius: 50%;
     font-weight: 600;
 }
 .title{
-    
     align-items: center;
     width: 100%;
     display: flex;
@@ -45,12 +44,12 @@ border-radius: 50%;
     word-break: break-all;
     display: flex;
     width: 100%;
-    padding: 0 0 10px 7%;
+    padding: 0 0 10px 3%;
     border-bottom: 2px solid darkturquoise;
 }
 .like{
- width: 100%;
- display: inline-flex;
- align-items: center;
- margin: 10px 0 0 10px;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    margin: 10px 0 0 10px;
 }

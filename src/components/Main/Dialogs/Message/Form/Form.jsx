@@ -5,11 +5,12 @@ import styles from './Form.module.css';
 let newMessage = React.createRef();
     const Form = (props) =>{
         let addMessage = () =>{
-            props.addMessage();
+            props.dispatch({type : 'ADD-MESSAGE'});
         }
         let OnMessageChange = () =>{
             let text = newMessage.current.value;
-            props.UpdateNewMessageText(text);
+            props.dispatch({type : 'UPDATE-NEW-MESSAGE-TEXT',
+                            message : text});
         }
         return (
             <div className={styles.form}>

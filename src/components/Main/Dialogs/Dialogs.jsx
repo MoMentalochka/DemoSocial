@@ -24,7 +24,7 @@ const Dialogs = (props) => {
             <div className={styles.massages_list}>
                 { Messages }
             </div>
-            <Form  MessageData = {props.dialogsPage} addMessage={props.addMessage} UpdateNewMessageText = {props.UpdateNewMessageText}/>
+            <Form  MessageData = {props.dialogsPage} dispatch = { props.dispatch} />
             
         </div>
     ) 

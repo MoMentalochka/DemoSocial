@@ -11,7 +11,7 @@ const Profile = (props) =>{
     <Avatar/>
     <Friends FriendsData = { props.profilePage.FriendsData }/>
     <Info name="Вася" second_name="Пупкин"/>
-    <Posts PostsData = { props.profilePage.PostsData } addPost={props.addPost} newPostText = {props.profilePage.newPostText} UpdateNewPostText = {props.UpdateNewPostText} />
+    <Posts profilePage = { props.profilePage } dispatch = { props.dispatch } />
     </div>
     
 }

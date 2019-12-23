@@ -5,12 +5,7 @@ import store from './redux/state'
 import * as serviceWorker from './serviceWorker';
 
 let Rerender = (state) =>{
-ReactDOM.render(<App state={state}
-                     addPost = {store.addPost.bind(store)} 
-                     UpdateNewPostText = {store.UpdateNewPostText.bind(store)}
-                     addMessage = {store.addMessage.bind(store)} 
-                     UpdateNewMessageText = {store.UpdateNewMessageText.bind(store)}
-                       />, document.getElementById('root'));
+ReactDOM.render(<App state = { state } dispatch = { store.dispatch.bind(store) }/>, document.getElementById('root'));
 }
 Rerender(store.getstate());
 store.subscriber(Rerender);

@@ -1,3 +1,4 @@
+
 let store ={
  _state : {
         profilePage: {
@@ -45,48 +46,51 @@ let store ={
     
     },    
     },
-    getstate(){
-        return this._state;
-    },
+    // Обединяет методы изменяющие UI
+    dispatch(action){
+        if(action.type === "ADD-POST"){
+            let newPost = {
+                id: this._state.profilePage.PostsData.length+1,
+                name: 'Franki',
+                second__name: 'Alladay',
+                like_counter: 0,
+                message: this._state.profilePage.newPostText,
+                avatar: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false'
+            };
+            this._state.profilePage.PostsData.push(newPost);
+            this._state.profilePage.newPostText = "";
+            this._CallSubscriber(this._state);
+        }
+        else if(action.type === "UPDATE-NEW-POST-TEXT"){
+            this._state.profilePage.newPostText = action.message;
+            this._CallSubscriber(this._state);
+        }
 
-    addPost(){
-        let newPost = {
-            id: this._state.profilePage.PostsData.length+1,
-            name: 'Franki',
-            second__name: 'Alladay',
-            like_counter: 0,
-            message: this._state.profilePage.newPostText,
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false'
-        };
-        this._state.profilePage.PostsData.push(newPost);
-        this._state.profilePage.newPostText = "";
-        this._CallSubscriber(this._state);
-        
-    },
-    UpdateNewPostText(newPostText){
-        this._state.profilePage.newPostText = newPostText;
-        this._CallSubscriber(this._state);
-    },
-   addMessage(){
-        let newMessage = {
-            id: 6,
-            message: this._state.dialogsPage.newMessageText,
-        };
-        this._state.dialogsPage.MessagesData.push(newMessage);
-        this._state.dialogsPage.newMessageText = "";
-        this._CallSubscriber(this._state);
-    },
-    UpdateNewMessageText(newMessageText){
-        this._state.dialogsPage.newMessageText = newMessageText;
-        this._CallSubscriber(this._state);
-    },
-    
+        else if(action.type === "ADD-MESSAGE"){
+            let newMessage = {
+                id: 6,
+                message: this._state.dialogsPage.newMessageText,
+            };
+            this._state.dialogsPage.MessagesData.push(newMessage);
+            this._state.dialogsPage.newMessageText = "";
+            this._CallSubscriber(this._state);
+        }
+        else if(action.type === "UPDATE-NEW-MESSAGE-TEXT"){
+            this._state.dialogsPage.newMessageText = action.message;
+            this._CallSubscriber(this._state);
+        }
+    },    
+
     subscriber(observer){
         this._CallSubscriber = observer;
     },
     _CallSubscriber (){
         // Функция определется обсервером из index.js
     },
-    };
+    getstate(){
+        return this._state;
+    },
 
+    };
+    window.store = store;
 export default store;

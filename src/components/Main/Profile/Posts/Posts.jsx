@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './Posts.module.css';
 import Post from './Post/Post'
-
+import {AddPostActionCreator, UpdateNewPostActionCreator} from '../../../../redux/state';
 const Posts = (props) =>{
-   
         // Данные для поста в пропсах
     let PostElements =
     props.profilePage.PostsData.map(p => <Post message={p.message} id={p.id} like_counter={p.like_counter} name={p.name} second__name={p.second__name} avatar={p.avatar} />).reverse()
@@ -12,12 +11,13 @@ const Posts = (props) =>{
     
 
     let addPost = () => {
-        props.dispatch({type : "ADD-POST"});
+        props.dispatch(AddPostActionCreator());
     };
+    debugger
     let onPostChange = () =>{
         let text = newPostElement.current.value;
-        props.dispatch({type : 'UPDATE-NEW-POST-TEXT',
-                        message : text});
+        let action = UpdateNewPostActionCreator(text)
+        props.dispatch(action);
     }
     return (
         <div className={styles.posts}>

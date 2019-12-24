@@ -1,4 +1,9 @@
 
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+        // Глобальный Store
 let store ={
  _state : {
         profilePage: {
@@ -81,6 +86,8 @@ let store ={
         }
     },    
 
+    
+
     subscriber(observer){
         this._CallSubscriber = observer;
     },
@@ -92,5 +99,22 @@ let store ={
     },
 
     };
+            // Обработчики событий Dialogs
+    export const AddMessageActionCreator = () => ({type : ADD_MESSAGE});
+    export const UpdateNewMessageTextActionCreator = (text) =>{
+        return(
+        {type : UPDATE_NEW_MESSAGE_TEXT,
+        message : text})
+    };
+            // Обработчики событий Posts
+    export const AddPostActionCreator = () => ({ type: ADD_POST });
+    export const UpdateNewPostActionCreator = (text) => {
+        return ({
+                type: UPDATE_NEW_POST_TEXT,
+                message: text
+                })
+    };
+
+
     window.store = store;
 export default store;

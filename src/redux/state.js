@@ -1,8 +1,8 @@
+import profileReducer from "./ProfileReducer";
+import dialogReducer from './DialogReducer'
 
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
+
+
         // Глобальный Store
 let store ={
  _state : {
@@ -53,40 +53,10 @@ let store ={
     },
     // Обединяет методы изменяющие UI
     dispatch(action){
-        if(action.type === "ADD-POST"){
-            let newPost = {
-                id: this._state.profilePage.PostsData.length+1,
-                name: 'Franki',
-                second__name: 'Alladay',
-                like_counter: 0,
-                message: this._state.profilePage.newPostText,
-                avatar: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false'
-            };
-            this._state.profilePage.PostsData.push(newPost);
-            this._state.profilePage.newPostText = "";
-            this._CallSubscriber(this._state);
-        }
-        else if(action.type === "UPDATE-NEW-POST-TEXT"){
-            this._state.profilePage.newPostText = action.message;
-            this._CallSubscriber(this._state);
-        }
-
-        else if(action.type === "ADD-MESSAGE"){
-            let newMessage = {
-                id: 6,
-                message: this._state.dialogsPage.newMessageText,
-            };
-            this._state.dialogsPage.MessagesData.push(newMessage);
-            this._state.dialogsPage.newMessageText = "";
-            this._CallSubscriber(this._state);
-        }
-        else if(action.type === "UPDATE-NEW-MESSAGE-TEXT"){
-            this._state.dialogsPage.newMessageText = action.message;
-            this._CallSubscriber(this._state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogReducer(this._state.dialogsPage, action)
+        this._CallSubscriber(this._state);
     },    
-
-    
 
     subscriber(observer){
         this._CallSubscriber = observer;
@@ -99,21 +69,9 @@ let store ={
     },
 
     };
-            // Обработчики событий Dialogs
-    export const AddMessageActionCreator = () => ({type : ADD_MESSAGE});
-    export const UpdateNewMessageTextActionCreator = (text) =>{
-        return(
-        {type : UPDATE_NEW_MESSAGE_TEXT,
-        message : text})
-    };
+    
             // Обработчики событий Posts
-    export const AddPostActionCreator = () => ({ type: ADD_POST });
-    export const UpdateNewPostActionCreator = (text) => {
-        return ({
-                type: UPDATE_NEW_POST_TEXT,
-                message: text
-                })
-    };
+   
 
 
     window.store = store;

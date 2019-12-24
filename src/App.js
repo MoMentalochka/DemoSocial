@@ -7,14 +7,12 @@ import Dialogs from './components/Main/Dialogs/Dialogs';
 import News from './components/Main/News/News';
 import Music from './components/Main/Music/Music';
 import Settings from './components/Main/Settings/Settings'
-import {BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 debugger
 const App =(props) => {
   window.props = props
   return (
-    <BrowserRouter>
-
     <div className='app-wrapper'>
     <div className="container">
       <Header/>
@@ -28,8 +26,6 @@ const App =(props) => {
       </div>
     </div>
     </div>
-
-  </BrowserRouter>
   );
 }
 

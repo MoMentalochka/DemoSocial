@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import store from './redux/state'
+import store from './redux/redux-store'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
 let Rerender = (state) =>{
-ReactDOM.render(<BrowserRouter><App state = { state } dispatch = { store.dispatch.bind(store) }/></BrowserRouter>, document.getElementById('root'));
+    ReactDOM.render(
+        <BrowserRouter>
+            <App state={state} dispatch={store.dispatch.bind(store)} />
+        </BrowserRouter>, document.getElementById('root'));
 }
-Rerender(store.getstate());
-store.subscriber(Rerender);
+Rerender(store.getState());
+store.subscribe( () => { 
+    let state = store.getState();
+    Rerender(state);
+} );
 
 
 

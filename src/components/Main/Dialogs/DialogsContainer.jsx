@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './Message/Message';
-import FormContainer from './Message/Form/FormContainer';
+import Form from './Message/Form/Form';
 
 const Dialogs = (props) => {
     // Данные Пользователей
@@ -24,7 +24,7 @@ const Dialogs = (props) => {
             <div className={styles.massages_list}>
                 { Messages }
             </div>
-            <FormContainer  MessageData = {props.dialogsPage} dispatch = { props.dispatch} />
+            <Form  MessageData = {props.dialogsPage} dispatch = { props.dispatch} />
             
         </div>
     ) 

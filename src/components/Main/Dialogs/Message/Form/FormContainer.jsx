@@ -10,9 +10,11 @@ import Form from './Form';
         let UpdateNewMessageText = (text) =>{
             let action = UpdateNewMessageTextActionCreator(text);
             props.dispatch(action);
+            console.log(action);
         };
         
-        return (<Form newMessageText = {props.MessageData.newMessageText} UpdateNewMessageText = {UpdateNewMessageText} AddMessage = {AddMessage} />)
+        return (<Form newMessageText = {props.newMessageText} UpdateNewMessageText = {UpdateNewMessageText} AddMessage = {AddMessage} />)
+    
     }
 
 export default FormContainer;

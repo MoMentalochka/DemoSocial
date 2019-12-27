@@ -4,18 +4,22 @@ import App from './App';
 import store from './redux/redux-store'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
-
-let Rerender = (state) =>{
+import {Provider} from 'react-redux';
+let Rerender = () =>{
     ReactDOM.render(
-        <BrowserRouter>
-            <App state={state} dispatch={store.dispatch.bind(store)} />
-        </BrowserRouter>, document.getElementById('root'));
+        
+            <BrowserRouter>
+                <Provider store = { store }>
+                    <App />
+                </Provider>
+            </BrowserRouter>, document.getElementById('root'));
+      
 }
-Rerender(store.getState());
-store.subscribe( () => { 
-    let state = store.getState();
-    Rerender(state);
-} );
+Rerender();
+
+store.subscribe(() => { 
+    Rerender();
+});
 
 
 

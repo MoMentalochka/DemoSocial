@@ -3,17 +3,16 @@ import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './Message/Message';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
-let mapStateToProps = (state)=>{
-    
+let mapStateToProps = (StateCopy)=>{
     let DialogsItems=
-    state.dialogsPage.usersData.map(u => <DialogsItem name={u.name} second__name={u.second__name} id={u.id} avatar={u.avatar}/>);
+    StateCopy.dialogsPage.usersData.map(u => <DialogsItem name={u.name} second__name={u.second__name} id={u.id} avatar={u.avatar}/>);
     let Messages=
-    state.dialogsPage.MessagesData.map(m => <Message message={m.message} id={m.id}/>);
+    StateCopy.dialogsPage.MessagesData.map(m => <Message message={m.message} id={m.id}/>);
     
     return {
         DialogsItems : DialogsItems,
         Messages : Messages,
-        newMessageText :  state.dialogsPage.newMessageText
+        newMessageText :  StateCopy.dialogsPage.newMessageText
     }
 }
 let mapDispatchToProps = (dispatch) =>{

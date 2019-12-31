@@ -8,5 +8,5 @@ let reducers = combineReducers({
     dialogsPage : dialogReducer,
 })
 let store = createStore(reducers);
-
+console.log(store.getState())
 export default store;

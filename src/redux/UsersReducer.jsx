@@ -1,15 +1,4 @@
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-
 let initialState ={
-        
-    MessagesData: [
-        { id: '1', message: 'First message' },
-        { id: '2', message: 'Second massage' },
-        { id: '3', message: 'Third message' },
-        { id: '4', message: 'Fourth message' },
-        { id: '5', message: 'Fifth message' },
-    ],
 
     usersData : [
         { id: '1', name: 'Franki', second__name: 'Alladay', like_counter: '10', avatar: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false' },
@@ -19,39 +8,26 @@ let initialState ={
         { id: '5', name: 'Alexei', second__name: 'Michailov', like_counter: '14', avatar: 'http://s019.radikal.ru/i605/1711/34/eada2b97814d.jpg' },
         { id: '6', name: 'Oleg', second__name: 'Radzievskiy', like_counter: '15', avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' }
     ],
-    newMessageText : "",
 };
-const dialogReducer = (state = initialState, action) => {
 
+const UsersReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_MESSAGE:
-            let message = state.newMessageText;
-            return {
-                ...state,
-                MessagesData: [...state.MessagesData, { id: 6, message: message }],
-                newMessageText: "",
-            }
+            let newMessage = {
+                id: 6,
+                message: state.newMessageText,
+            };
+            state.MessagesData.push(newMessage);
+            state.newMessageText = "";
+            return {...state};
+
         case UPDATE_NEW_MESSAGE_TEXT:
-            return {
-                ...state,
-                newMessageText: action.message,
-            }
+            state.newMessageText = action.message;
+            return {...state};
 
         default:
-            return { ...state }
-    };
-
+            return state;
+    }
 };
-// Обработчики событий Dialogs
-export const AddMessageActionCreator = () => ({ type: ADD_MESSAGE });
-export const UpdateNewMessageTextActionCreator = (text) => {
-    return (
-        {
-            type: UPDATE_NEW_MESSAGE_TEXT,
-            message: text
-        })
-};
-
-        
-export default dialogReducer;
+export default UsersReducer;

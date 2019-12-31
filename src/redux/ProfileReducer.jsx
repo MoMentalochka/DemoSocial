@@ -22,37 +22,40 @@ let initialState = {
     newPostText : "",
 };
 
-const profileReducer = (state = initialState, action) =>{
-    switch (action.type){
+const profileReducer = (state = initialState, action) => {
+    switch (action.type) {
 
-        case ADD_POST: 
+        case ADD_POST:
             let newPost = {
-                id: state.PostsData.length+1,
+                id: state.PostsData.length + 1,
                 name: 'Franki',
                 second__name: 'Alladay',
                 like_counter: 0,
                 message: state.newPostText,
                 avatar: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false'
             };
-            state.PostsData.push(newPost);
-            state.newPostText = "";
-        return {...state};
+            return {
+                ...state,
+                PostsData: [...state.PostsData, { ...newPost }],
+                newPostText: "",
+            }
 
-        case UPDATE_NEW_POST_TEXT :
-            state.newPostText = action.message; 
-        return {...state};
+        case UPDATE_NEW_POST_TEXT:
+            return {
+                ...state,
+                newPostText: action.message,
+            }
 
-        default : 
-            return state;
+        default:
+            return { ...state };
     }
 }
-
 export const AddPostActionCreator = () => ({ type: ADD_POST });
 export const UpdateNewPostActionCreator = (text) => {
     return ({
-            type: UPDATE_NEW_POST_TEXT,
-            message: text
-            })
+        type: UPDATE_NEW_POST_TEXT,
+        message: text
+    })
 };
 
 

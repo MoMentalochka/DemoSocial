@@ -5,24 +5,13 @@ import store from './redux/redux-store'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import {Provider} from 'react-redux';
-let Rerender = () =>{
+
     ReactDOM.render(
-        
             <BrowserRouter>
                 <Provider store = { store }>
                     <App />
                 </Provider>
             </BrowserRouter>, document.getElementById('root'));
-      
-}
-Rerender();
-
-store.subscribe(() => { 
-    Rerender();
-});
-
-
-
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

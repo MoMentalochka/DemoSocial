@@ -22,6 +22,14 @@ const Nav = () => {
         </li>
 
         <li>
+        <NavLink to="/users" activeClassName={styles.active}>
+        <div className={styles.item}>
+          Users
+        </div>
+        </NavLink>
+        </li>
+
+        <li>
         <NavLink to="/news" activeClassName={styles.active}>
         <div className={styles.item}>
           News

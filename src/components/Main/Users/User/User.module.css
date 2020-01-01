@@ -12,6 +12,7 @@
 }
 .name{
     text-align: center;
+    min-width: 200px;
 }
 .avatar img{
     width: 70px;

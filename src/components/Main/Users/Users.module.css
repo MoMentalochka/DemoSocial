@@ -5,3 +5,7 @@
     height: 100%;
    
   }
+.activePage {
+  color: brown;
+  font-size: 1.2em;
+}

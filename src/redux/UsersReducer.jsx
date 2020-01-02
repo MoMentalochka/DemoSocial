@@ -1,17 +1,15 @@
 let SET_USERS = "SET-USERS";
 let UNFOLLOW = "UNFOLLOW";
 let FOLLOW = "FOLLOW"
-
+let SET_CURRENT_PAGE = "SET-CURRENT-PAGE"
+let SET_TOTAL_COUNT = "SET-TOTAL-COUNT"
 let initialState ={
 
     usersData : [
-        { id: '1', name: 'Franki', second__name: 'Alladay', photos: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false', followed : true },
-        { id: '2', name: 'Nikolay', second__name: 'Puchinin',  photos: 'https://koshek.ru/assets/components/gallery/connector.php?action=web/phpthumb&ctx=web&w=1600&h=800&zc=0&far=&q=90&src=%2Fassets%2Fgallery%2F12%2F309.jpg', followed : true},
-        { id: '3', name: 'Maksim', second__name: 'Moiseenko', photos: 'https://pets-expert.ru/wp-content/uploads/2018/09/Манчкин-с-бирюзовыми-глазами.jpg', followed : true },
-        { id: '4', name: 'Ignat', second__name: 'Lesovckiy',  photos: 'https://avatars.mds.yandex.net/get-pdb/812271/30f9a828-a9ff-4eed-9b08-f9a7dbbab37c/s1200', followed : true },
-        { id: '5', name: 'Alexei', second__name: 'Michailov',  photos: 'http://s019.radikal.ru/i605/1711/34/eada2b97814d.jpg', followed : true },
-        { id: '6', name: 'Oleg', second__name: 'Radzievskiy',  photos: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false', followed : false }
-    ],
+        ],
+    currentPage : 1,
+    totalCount : 21,
+    pageSize : 10,
 };
 
 const UsersReducer = (state = initialState, action) => {
@@ -46,7 +44,19 @@ const UsersReducer = (state = initialState, action) => {
             
             return{
                 ...state,
-                usersData : [...state.usersData, ...action.data ]
+                usersData :  [...action.data ]
+            }
+        case SET_CURRENT_PAGE:
+            
+            return{
+                ...state,
+                currentPage :  action.currentPage
+            }
+        case SET_TOTAL_COUNT:
+            
+            return{
+                ...state,
+                totalCount :  action.totalCount
             }
 
         default:
@@ -60,4 +70,6 @@ const UsersReducer = (state = initialState, action) => {
 export const followAC = (UserId) => ({type : FOLLOW, id : UserId})
 export const unfollowAC = (UserId) => ({type : UNFOLLOW, id : UserId})
 export const setUsersAC = (Users) => ({type : SET_USERS, data : Users })
+export const setCurrentPageAC = (currentPage) => ({type : SET_CURRENT_PAGE, currentPage })
+export const setTotalCountAC = (totalCount) => ({type : SET_TOTAL_COUNT, totalCount })
 export default UsersReducer;

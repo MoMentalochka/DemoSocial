@@ -3,7 +3,7 @@ import styles from './Posts.module.css';
 
 
 const Posts = (props) =>{
-    console.log(props)
+   
         // Данные для поста в пропсах
     let newPostElement = React.createRef();
 

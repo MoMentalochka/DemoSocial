@@ -1,14 +1,13 @@
 import React from 'react';
-import { followAC, unfollowAC } from "../../../../redux/UsersReducer"
 import styles from './User.module.css'
 let User = (props) => {
 
     let follow = () => {
-        props.dispatch(followAC(props.id));
+        props.follow(props.id);
         alert('Теперь ' + props.name + " " + props.second__name + ' ваш друг')
     }
     let unfollow = () => {
-        props.dispatch(unfollowAC(props.id));
+        props.unfollow(props.id);
         alert('Вы отписались от ' + props.name + " " + props.second__name);
     }
     let t = (props.followed !== true) ? 'Follow' : 'Unfollow';

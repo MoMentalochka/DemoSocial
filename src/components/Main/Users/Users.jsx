@@ -11,12 +11,12 @@ import UserPhoto from '../../../Img/User.jpg'
              pages.push(i)}
 
         let Users =
-        props.data.usersData.map(u => <User key={u.id} name={u.name} second__name={u.second__name} id={u.id} avatar={u.photos.small != null ? u.photos.small : UserPhoto} followed={u.followed} dispatch={props.data.dispatch} />)
+        props.data.usersData.map(u => <User key={u.id} name={u.name} second__name={u.second__name} id={u.id} avatar={u.photos.small != null ? u.photos.small : UserPhoto} followed={u.followed} follow = {props.follow} unfollow = {props.unfollow}/>)
         
         return (
-            <div className={styles.news}>
+            <div className={styles.users}>
             {Users}
-            {pages.map(p => { return <span className = {props.data.currentPage === p && styles.activePage } onClick={ () => props.setCurrentPage(p) }> {p} </span>} )}
+            {pages.map(p => { return <span className = {props.data.currentPage === p ? styles.activePage  : styles.Page } onClick={ () => props.setCurrentPage(p) }> {p} </span>} )}
                
 
             </div>

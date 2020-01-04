@@ -6,10 +6,10 @@ margin: 0 auto;
 grid-area: l;
 
 }
-.avatar {
-  background-image: url(https://yt3.ggpht.com/a/AGF-l78Ay3kQaKkeRx9FoBlt6yqi2MVYwEYvEd82lQ=s900-c-k-c0xffffffff-no-rj-mo);
-  background-size: cover;
-  background-position: center center ;
+.avatar{
+  margin-left: 20px;
+}
+.avatar img{
   height: 240px;
   width: 240px;
   border-radius: 20px;

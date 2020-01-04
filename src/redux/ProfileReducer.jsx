@@ -1,8 +1,12 @@
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
+const SET_USERS_PROFILE = 'SET-USERS-PROFILE';
+const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
 
 let initialState = {
-            
+
+    ProfileData : null,
+
     PostsData : [
         { id: '1', name: 'Franki', message: 'Franki', second__name: 'Alladay', like_counter: '10', avatar: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false' },
         { id: '2', name: 'Nikolay', message: 'Franki',second__name: 'Puchinin', like_counter: '11', avatar: 'https://koshek.ru/assets/components/gallery/connector.php?action=web/phpthumb&ctx=web&w=1600&h=800&zc=0&far=&q=90&src=%2Fassets%2Fgallery%2F12%2F309.jpg' },
@@ -17,11 +21,14 @@ let initialState = {
         { id: '3', name: 'Maksim', second__name: 'Moiseenko', avatar: 'https://pets-expert.ru/wp-content/uploads/2018/09/Манчкин-с-бирюзовыми-глазами.jpg' },
         { id: '4', name: 'Ignat', second__name: 'Lesovckiy',  avatar: 'https://avatars.mds.yandex.net/get-pdb/812271/30f9a828-a9ff-4eed-9b08-f9a7dbbab37c/s1200' },
         { id: '5', name: 'Alexei', second__name: 'Michailov', avatar: 'http://s019.radikal.ru/i605/1711/34/eada2b97814d.jpg' },
-        { id: '6', name: 'Oleg', second__name: 'Radzievskiy',  avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' }
+        { id: '6', name: 'Oleg', second__name: 'Radzievskiy',  avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' },
+        { id: '6', name: 'Oleg', second__name: 'Radzievskiy',  avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' },
+        { id: '6', name: 'Oleg', second__name: 'Radzievskiy',  avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' },
+        { id: '6', name: 'Oleg', second__name: 'Radzievskiy',  avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' },
     ],
     newPostText : "",
+    isFetching : true,
 };
-
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
 
@@ -39,11 +46,20 @@ const profileReducer = (state = initialState, action) => {
                 PostsData: [...state.PostsData, { ...newPost }],
                 newPostText: "",
             }
-
         case UPDATE_NEW_POST_TEXT:
             return {
                 ...state,
                 newPostText: action.message,
+            }
+        case SET_USERS_PROFILE:
+            return {
+                ...state,
+               ProfileData : {...action.profile},
+            }
+        case TOGGLE_IS_FETCHING :
+            return{
+                ...state,
+                isFetching :  action.isFetching
             }
 
         default:
@@ -57,6 +73,8 @@ export const UpdateNewPostActionCreator = (text) => {
         message: text
     })
 };
+export const setUserProfile = (profile) => ({ type: SET_USERS_PROFILE, profile });
+export const isFetching = (isFetching) => ({type : TOGGLE_IS_FETCHING, isFetching })
 
 
 export default profileReducer;

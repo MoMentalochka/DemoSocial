@@ -2,14 +2,31 @@
     grid-area: h;
     display: flex;
     background: rgb(82, 160, 248);
+    justify-content: space-between;
   }
   .header img{
     margin-left: 50px;
     width: 40px;
   }
 .header__logo{
+  display: flex;
       color: cornsilk;
       font-weight: 900;
       font-size: 30px;
       margin-left: 50px;
-  }
+}
+.header_user_info{
+display: flex;
+color: cornsilk;
+font-weight: 900;
+font-size: 30px;
+margin-left: 50px;
+}
+.header_login{
+display: flex;
+color: cornsilk;
+font-weight: 900;
+font-size: 30px;
+margin-left: 50px;
+}
+

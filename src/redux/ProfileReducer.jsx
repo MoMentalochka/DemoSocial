@@ -54,7 +54,7 @@ const profileReducer = (state = initialState, action) => {
         case SET_USERS_PROFILE:
             return {
                 ...state,
-               ProfileData : {...action.profile},
+                ProfileData : {...action.profile},
             }
         case TOGGLE_IS_FETCHING :
             return{

@@ -1,15 +1,42 @@
 import React from 'react';
 import styles from './User.module.css'
 import { NavLink } from 'react-router-dom';
+import * as axios from 'axios';
+
 let User = (props) => {
 
     let follow = () => {
-        props.follow(props.id);
-        alert('Теперь ' + props.name + " " + props.second__name + ' ваш друг')
+        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
+            {},
+            { withCredentials: true,
+                headers: {
+                    "API-KEY" : "e4d8f4b1-5dff-4ee4-8687-26915b319abf"}
+                 },
+        )
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    props.follow(props.id);
+                    alert('Теперь ' + props.name + " " + props.second__name + ' ваш друг')
+                }
+
+
+            });
     }
+
     let unfollow = () => {
-        props.unfollow(props.id);
-        alert('Вы отписались от ' + props.name + " " + props.second__name);
+        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
+            { withCredentials: true,
+            headers: {
+               "API-KEY" : "e4d8f4b1-5dff-4ee4-8687-26915b319abf"
+            } },
+            
+        )
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                props.unfollow(props.id);
+                alert('Вы отписались от ' + props.name + " " + props.second__name)
+            }
+        });
     }
     let t = (props.followed !== true) ? 'Follow' : 'Unfollow';
     let a = (props.followed === true) ? unfollow : follow;

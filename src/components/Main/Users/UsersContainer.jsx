@@ -1,20 +1,18 @@
 import { connect } from 'react-redux';
-import * as axios from 'axios';
 import React from 'react';
 import { setCurrentPage, setTotalCount, setUsers, isFetching, follow, unfollow } from '../../../redux/UsersReducer';
 import Users from './Users'
-import Preloader from '../../common/Preloader'
+import Preloader from '../../common/Preloader';
+import { UsersApi } from './../../api/api';
 
 class UsersContainer extends React.Component {
     
     componentDidMount() {
-        this.props.isFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,{
-            withCredentials:true
-        })
+            this.props.isFetching(true)
+            UsersApi.getUsers(this.props.currentPage ,this.props.pageSize)
             .then(response => {
-            this.props.setUsers(response.data.items)
-            this.props.setTotalCount(response.data.totalCount)
+            this.props.setUsers(response.items)
+            this.props.setTotalCount(response.totalCount)
             this.props.isFetching(false)
         });
     }
@@ -22,27 +20,18 @@ class UsersContainer extends React.Component {
     setCurrentPage = (p) => {
         this.props.isFetching(true)
         this.props.setCurrentPage(p)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`,
-        {
-            withCredentials:true
-        })
-            .then(response => {
-            this.props.setUsers(response.data.items)
+        UsersApi.getUsers(p ,this.props.pageSize)
+        .then(response => {
+            this.props.setUsers(response.items)
             this.props.isFetching(false)
         });
     }
     
-
-
-
     render(){ return <> 
         {this.props.isFetch ? <Preloader/> :  <Users data = {this.props} follow = {this.props.follow} unfollow = {this.props.unfollow} setCurrentPage= {this.setCurrentPage}/>}
         </>
     }
-    
-    
 }
-
 let mapStateToProps = (state) => {
     return {
         usersData : state.usersPage.usersData,
@@ -60,5 +49,4 @@ let mapStateToProps = (state) => {
 //         isFetching,
 //     }
 // }
-
 export default connect (mapStateToProps,{ setCurrentPage, setTotalCount, setUsers, isFetching, follow, unfollow })(UsersContainer);

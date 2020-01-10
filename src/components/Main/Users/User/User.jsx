@@ -3,23 +3,29 @@ import styles from './User.module.css'
 import { NavLink } from 'react-router-dom';
 import { FollowApi } from './../../../api/api';
 let User = (props) => {
-
+    
     let follow = () => {
+        props.followingInProgress(true, props.id)
+        
         FollowApi.followApi(props.id).then(response => {
                 if (response.data.resultCode === 0) {
                     props.follow(props.id);
-                    alert('Теперь ' + props.name + ' ваш друг')
+                    // alert('Теперь ' + props.name + ' ваш друг')
                 }
+                
+                props.followingInProgress(false, props.id)
             });
             
     }
 
     let unfollow = () => {
+        props.followingInProgress(true, props.id)
         FollowApi.unfollowApi(props.id).then(response => {
                 if (response.data.resultCode === 0) {
                     props.unfollow(props.id);
-                    alert('Вы отписались от ' + props.name )
+                    // alert('Вы отписались от ' + props.name )
                 }
+                props.followingInProgress(false, props.id)
             });
     }
 
@@ -34,7 +40,7 @@ let User = (props) => {
             </NavLink>
             <div className={styles.name}>{props.name} <br /> {props.second__name}</div>
             
-            <button onClick={a} className={bstyle}> {t}</button>
+            <button disabled = {props.following.some(id => id === props.id)} onClick={a} className={bstyle}> {t}</button>
         </div>
     )
 }

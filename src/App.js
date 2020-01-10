@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Nav from './components/Nav/Nav';
+import NavContainer from './components/Nav/NavContainer';
 import ProfileContainer from './components/Main/Profile/ProfileContainer';
 import News from './components/Main/News/News';
 import Music from './components/Main/Music/Music';
@@ -15,7 +15,7 @@ const App = () => {
     <div className='app-wrapper'>
     <div className="container">
       <HeaderContainer/>
-      <Nav/>
+      <NavContainer/>
       <div className='app-wrapper-content'>
         <Route path='/profile/:userId?' render = { () => <ProfileContainer/>}/>
         <Route path='/dialogs' render = { () => <DialogsContainer />}/>

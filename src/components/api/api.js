@@ -14,19 +14,24 @@ export const UsersApi = {
             return response.data 
         })
     },
-                //  UsersContainer
+}
+
+export const FollowApi = {
+                    //  UsersContainer
     followApi(id){
         return instance.post(`follow/${id}`)
     },
     unfollowApi(id){
         return  instance.delete(`follow/${id}`)
     },
-                // HeaderContainer
+}
+
+export const AuthApi = {
+                    // HeaderContainer
     auth(){
         return  instance.get(`auth/me`)
         .then(response =>{
                         return response.data
         })
     }
-
 }

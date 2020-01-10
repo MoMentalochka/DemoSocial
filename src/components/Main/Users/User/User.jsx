@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './User.module.css'
 import { NavLink } from 'react-router-dom';
-import { UsersApi } from './../../../api/api';
+import { FollowApi } from './../../../api/api';
 let User = (props) => {
 
     let follow = () => {
-        UsersApi.followApi(props.id).then(response => {
+        FollowApi.followApi(props.id).then(response => {
                 if (response.data.resultCode === 0) {
                     props.follow(props.id);
                     alert('Теперь ' + props.name + ' ваш друг')
@@ -15,7 +15,7 @@ let User = (props) => {
     }
 
     let unfollow = () => {
-        UsersApi.unfollowApi(props.id).then(response => {
+        FollowApi.unfollowApi(props.id).then(response => {
                 if (response.data.resultCode === 0) {
                     props.unfollow(props.id);
                     alert('Вы отписались от ' + props.name )

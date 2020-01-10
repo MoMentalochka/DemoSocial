@@ -3,13 +3,13 @@ import {Login} from '../../redux/AuthReducer'
 import Header from './Header';
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom';
-import { UsersApi } from './../api/api';
+import { AuthApi } from './../api/api';
 
 
 class HeaderContainer extends React.Component {
    
     componentDidMount() {
-        UsersApi.auth().then(response => {
+        AuthApi.auth().then(response => {
                         let data = {...response.data}
                         this.props.Login(data)
                     });  

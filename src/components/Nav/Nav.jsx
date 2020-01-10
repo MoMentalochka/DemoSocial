@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Nav.module.css';
 import {NavLink} from 'react-router-dom';
-
-const Nav = () => { 
+const Nav = (props) => { 
+ 
     return <div className={styles.nav}>
     <ul>
         <li>
-        <NavLink to="/profile" activeClassName={styles.active}>
+        <NavLink to={`/profile/${props.id}`} activeClassName={styles.active}>
         <div className={styles.item}>
           Profile
         </div>

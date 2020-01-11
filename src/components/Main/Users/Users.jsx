@@ -12,7 +12,7 @@ import UserPhoto from '../../../Img/User.jpg'
              pages.push(i)}
 
         let Users =
-        props.usersData.map(u => <User key={u.id} name={u.name} second__name={u.second__name} id={u.id} avatar={u.photos.small != null ? u.photos.small : UserPhoto} following = {props.following} followed={u.followed} follow = {props.follow} unfollow = {props.unfollow} followingInProgress = {props.followingInProgress} />)
+        props.usersData.map(u => <User key={u.id} name={u.name} second__name={u.second__name} id={u.id} avatar={u.photos.small != null ? u.photos.small : UserPhoto} following = {props.following} followed={u.followed} follow = {props.follow} unfollow = {props.unfollow} followingInProgress = {props.followingInProgress} unfollowThunk = {props.unfollowThunk} followThunk = {props.followThunk}  />)
         
         return (
            

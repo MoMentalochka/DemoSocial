@@ -1,36 +1,12 @@
 import React from 'react';
 import styles from './User.module.css'
 import { NavLink } from 'react-router-dom';
-import { FollowApi } from './../../../api/api';
 let User = (props) => {
-    
-    let follow = () => {
-        props.followingInProgress(true, props.id)
-        
-        FollowApi.followApi(props.id).then(response => {
-                if (response.data.resultCode === 0) {
-                    props.follow(props.id);
-                    // alert('Теперь ' + props.name + ' ваш друг')
-                }
-                
-                props.followingInProgress(false, props.id)
-            });
-            
-    }
 
-    let unfollow = () => {
-        props.followingInProgress(true, props.id)
-        FollowApi.unfollowApi(props.id).then(response => {
-                if (response.data.resultCode === 0) {
-                    props.unfollow(props.id);
-                    // alert('Вы отписались от ' + props.name )
-                }
-                props.followingInProgress(false, props.id)
-            });
-    }
 
+  
     let t = (props.followed !== true) ? 'Follow' : 'Unfollow';
-    let a = (props.followed === true) ? unfollow : follow;
+    let a = (props.followed === true) ? () => {props.unfollowThunk(props.id, props.name)} : () => {props.followThunk(props.id, props.name)};
     let bstyle = (props.followed !== true) ? styles.follow : styles.unfollow;
 
     return (

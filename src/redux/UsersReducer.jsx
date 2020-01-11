@@ -1,3 +1,5 @@
+import { UsersApi, FollowApi } from './../components/api/api';
+
 let SET_USERS = "SET-USERS";
 let UNFOLLOW = "UNFOLLOW";
 let FOLLOW = "FOLLOW"
@@ -83,6 +85,59 @@ const UsersReducer = (state = initialState, action) => {
     }
 
 };
+
+
+//Thunk 
+export const getUsers = (currentPage, pageSize) => 
+        {return (dispatch) => {
+            dispatch(isFetching(true));
+
+            UsersApi.getUsers(currentPage ,pageSize).then(response => {
+                dispatch(setUsers(response.items))
+                dispatch(setTotalCount(response.totalCount))
+                dispatch(isFetching(false))
+                dispatch(setCurrentPage(currentPage))
+            });
+    }
+
+}
+
+
+//Thunk 
+export const followThunk = (id, name ) => 
+        {return (dispatch) => {
+            dispatch(followingInProgress(true,id));
+        
+            FollowApi.followApi(id).then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(follow(id));
+                    // alert('Теперь ' + name + ' ваш друг')
+                }
+                dispatch(followingInProgress(false, id))
+            });
+    }
+
+}
+
+
+
+//Thunk 
+export const unfollowThunk = (id, name) => 
+        {return (dispatch) => {
+            dispatch(followingInProgress(true,id));
+        
+            FollowApi.unfollowApi(id).then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(unfollow(id));
+                    // alert('Вы отписались от ' + name )
+                }
+                dispatch(followingInProgress(false, id))
+            });
+    }
+
+}
+
+
 export const follow = (UserId) => ({type : FOLLOW, id : UserId})
 export const unfollow = (UserId) => ({type : UNFOLLOW, id : UserId})
 export const setUsers = (Users) => ({type : SET_USERS, data : Users })

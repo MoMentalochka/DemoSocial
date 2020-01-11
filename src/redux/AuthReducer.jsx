@@ -1,3 +1,5 @@
+
+import { AuthApi } from './../components/api/api';
 const Log_in = 'Log-in';
 const Log_Out = 'Log-Out';
 let initialState ={
@@ -29,6 +31,15 @@ const AuthReducer = (state = initialState, action) => {
     };
 
 };
+//Thunk 
+export const Auth = () => {
+    return (dispatch)=>{
+        AuthApi.auth().then(response => {
+            let data = {...response.data}
+            dispatch(Login(data))
+        });  
+    }
+}
 
 export const Login = (data) => ({ type: Log_in, data});
 export const LogOut = (data) => {return {type: Log_Out, data}};

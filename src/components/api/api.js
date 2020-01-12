@@ -31,7 +31,7 @@ export const AuthApi = {
     auth(){
         return  instance.get(`auth/me`)
         .then(response =>{
-                        return response.data
+                        return response
         })
     }
 }

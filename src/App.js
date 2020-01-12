@@ -9,6 +9,7 @@ import { Route } from 'react-router-dom';
 import DialogsContainer from './components/Main/Dialogs/DialogsContainer';
 import UsersContainer from './components/Main/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/news' component={News}/>
         <Route path='/music' component={Music}/>
         <Route path='/settings' component={Settings}/>
+        <Route path='/login' render = {() => <Login/> } />
       </div>
     </div>
     </div>

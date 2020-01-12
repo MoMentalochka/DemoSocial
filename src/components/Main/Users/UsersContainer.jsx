@@ -3,7 +3,8 @@ import React from 'react';
 import { setCurrentPage, follow, unfollow, followingInProgress, getUsers,unfollowThunk, followThunk } from '../../../redux/UsersReducer';
 import Users from './Users'
 import Preloader from '../../common/Preloader';
-
+import { WithAuthRedirect } from './../../hoc/WithAuthRedirect';
+import { compose } from 'redux';
 class UsersContainer extends React.Component {
     
     componentDidMount() {
@@ -22,7 +23,7 @@ class UsersContainer extends React.Component {
     }
     
     render(){ return <> 
-        {this.props.isFetch ? <Preloader/> :  <Users {...this.props} setCurrentPage = {this.setCurrentPage} />}
+        {this.props.isFetch ? <Preloader/> :  <Users {...this.props} setCurrentPage = {this.setCurrentPage}  />}
         </>
     }
 }
@@ -33,15 +34,14 @@ let mapStateToProps = (state) => {
         totalCount : state.usersPage.totalCount,
         pageSize : state.usersPage.pageSize,
         isFetch : state.usersPage.isFetching,
-        following : state.usersPage.following
+        following : state.usersPage.following,
+        isAuth : state.Auth.auth,
+
     }
 }
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         dispatch,
-//         setCurrentPage,
-//         setTotalCount,
-//         isFetching,
-//     }
-// }
-export default connect (mapStateToProps,{ setCurrentPage,  follow, unfollow, followingInProgress, getUsers, unfollowThunk, followThunk })(UsersContainer);
+
+
+export default  compose(
+                    connect (mapStateToProps,{ setCurrentPage,  follow, unfollow, followingInProgress, getUsers, unfollowThunk, followThunk }),
+                    WithAuthRedirect
+                )(UsersContainer)

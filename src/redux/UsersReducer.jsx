@@ -74,7 +74,7 @@ const UsersReducer = (state = initialState, action) => {
                 ...state,
                 following : action.following 
                 ? [...state.following,action.id]
-                : state.following.filter(id => id != action.id)
+                : state.following.filter(id => id !== action.id)
             }
 
         default:

@@ -1,12 +1,11 @@
 
 import { AuthApi } from './../components/api/api';
 const Log_in = 'Log-in';
-const Log_Out = 'Log-Out';
 let initialState ={
 
-   userId : null,
-   email : null,
-   login : null,
+    userId : null,
+    email : null,
+    login : null,
     auth : false,
 };
 const AuthReducer = (state = initialState, action) => {
@@ -17,14 +16,8 @@ const AuthReducer = (state = initialState, action) => {
             
             return {
                 ...state,
-                ...action.data,
-                
-                
-            }
-        case Log_Out:
-            return {
-                ...state,
-                ...action.data,
+                ...action.data.data,
+                ...state.auth = (action.data.resultCode === 0) ? true : false
             }
         default:
             return { ...state }
@@ -42,6 +35,5 @@ export const Auth = () => {
 }
 
 export const Login = (data) => ({ type: Log_in, data});
-export const LogOut = (data) => {return {type: Log_Out, data}};
         
 export default AuthReducer;

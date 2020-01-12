@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/DemoSocial/static/css/main.fecc796b.chunk.css",
-    "main.js": "/DemoSocial/static/js/main.9987ed37.chunk.js",
-    "main.js.map": "/DemoSocial/static/js/main.9987ed37.chunk.js.map",
+    "main.js": "/DemoSocial/static/js/main.f1c9002c.chunk.js",
+    "main.js.map": "/DemoSocial/static/js/main.f1c9002c.chunk.js.map",
     "runtime-main.js": "/DemoSocial/static/js/runtime-main.1e9186bc.js",
     "runtime-main.js.map": "/DemoSocial/static/js/runtime-main.1e9186bc.js.map",
     "static/js/2.8e7b1202.chunk.js": "/DemoSocial/static/js/2.8e7b1202.chunk.js",
     "static/js/2.8e7b1202.chunk.js.map": "/DemoSocial/static/js/2.8e7b1202.chunk.js.map",
     "index.html": "/DemoSocial/index.html",
-    "precache-manifest.25fe186f21edc3b66c4bbcdd728a1989.js": "/DemoSocial/precache-manifest.25fe186f21edc3b66c4bbcdd728a1989.js",
+    "precache-manifest.26ab07af8b00b339b9d61d1c3a8d7d71.js": "/DemoSocial/precache-manifest.26ab07af8b00b339b9d61d1c3a8d7d71.js",
     "service-worker.js": "/DemoSocial/service-worker.js",
     "static/css/main.fecc796b.chunk.css.map": "/DemoSocial/static/css/main.fecc796b.chunk.css.map",
     "static/js/2.8e7b1202.chunk.js.LICENSE": "/DemoSocial/static/js/2.8e7b1202.chunk.js.LICENSE",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.1e9186bc.js",
     "static/js/2.8e7b1202.chunk.js",
     "static/css/main.fecc796b.chunk.css",
-    "static/js/main.9987ed37.chunk.js"
+    "static/js/main.f1c9002c.chunk.js"
   ]
 }

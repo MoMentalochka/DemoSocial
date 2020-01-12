@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/DemoSocial/static/css/main.fecc796b.chunk.css",
+    "main.js": "/DemoSocial/static/js/main.0de36868.chunk.js",
+    "main.js.map": "/DemoSocial/static/js/main.0de36868.chunk.js.map",
+    "runtime-main.js": "/DemoSocial/static/js/runtime-main.1e9186bc.js",
+    "runtime-main.js.map": "/DemoSocial/static/js/runtime-main.1e9186bc.js.map",
+    "static/js/2.8e7b1202.chunk.js": "/DemoSocial/static/js/2.8e7b1202.chunk.js",
+    "static/js/2.8e7b1202.chunk.js.map": "/DemoSocial/static/js/2.8e7b1202.chunk.js.map",
+    "index.html": "/DemoSocial/index.html",
+    "precache-manifest.e2d4b44d4f54a3cb52253d2c2a21af61.js": "/DemoSocial/precache-manifest.e2d4b44d4f54a3cb52253d2c2a21af61.js",
+    "service-worker.js": "/DemoSocial/service-worker.js",
+    "static/css/main.fecc796b.chunk.css.map": "/DemoSocial/static/css/main.fecc796b.chunk.css.map",
+    "static/js/2.8e7b1202.chunk.js.LICENSE": "/DemoSocial/static/js/2.8e7b1202.chunk.js.LICENSE",
+    "static/media/User.jpg": "/DemoSocial/static/media/User.a1107919.jpg",
+    "static/media/preloader.svg": "/DemoSocial/static/media/preloader.1d15156b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1e9186bc.js",
+    "static/js/2.8e7b1202.chunk.js",
+    "static/css/main.fecc796b.chunk.css",
+    "static/js/main.0de36868.chunk.js"
+  ]
+}

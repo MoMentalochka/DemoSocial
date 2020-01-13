@@ -31,9 +31,9 @@ const profileReducer = (state = initialState, action) => {
 
         case ADD_POST:
             let newPost = {
-                id: state.PostsData.length + 1,
-                name: 'Franki',
-                second__name: 'Alladay',
+                id: 5595,
+                name: "d" ,
+                second__name: null,
                 like_counter: 0,
                 message: state.newPostText,
                 avatar: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false'
@@ -63,7 +63,7 @@ const profileReducer = (state = initialState, action) => {
             return { ...state };
     }
 }
-export const AddPostActionCreator = () => ({ type: ADD_POST });
+export const AddPostActionCreator = (post) => ({ type: ADD_POST, post });
 export const UpdateNewPostActionCreator = (text) => {
     return ({
         type: UPDATE_NEW_POST_TEXT,

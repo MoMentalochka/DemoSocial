@@ -21,7 +21,6 @@ class Status extends React.Component {
     }
     onChange = () =>{
         let text = this.statustext.current.value
-        console.log(text)
         this.setState({
             status : text
         })

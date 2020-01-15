@@ -1,28 +1,29 @@
 import React from 'react'
 import styles from './Info.module.css';
-
 class Status extends React.Component {
-    statustext = React.createRef()
+   
     state = {
         editMode: false,
-        status : 'Изменить статус',
+        status : this.props.status
     }
-
+    
     activateEditMode = () =>{
         this.setState({
             status : '',
             editMode : true 
         })
+        
     }
     deactivateEditMode = () =>{
         this.setState({
             editMode : false
         })
+        this.props.updateUserStatus(this.state.status) 
+        
     }
-    onChange = () =>{
-        let text = this.statustext.current.value
+    onChange = (e) =>{
         this.setState({
-            status : text
+            status : e.currentTarget.value,
         })
     }
     render() {
@@ -30,7 +31,7 @@ class Status extends React.Component {
             <div>
             { !this.state.editMode  &&
                     <div className={styles.status}>
-                        <p onClick = {()=> {this.activateEditMode()}}>{this.state.status.trim() !='' ? this.state.status : 'Изменить статус'}</p>
+                        <p onClick = {()=> {this.activateEditMode()}}>  {this.props.status ? this.props.status : "Изменить статус" } </p>
                     </div> 
             }
             {   this.state.editMode  &&
@@ -44,5 +45,7 @@ class Status extends React.Component {
 
         )
     }
+    
 }
+
 export default Status 

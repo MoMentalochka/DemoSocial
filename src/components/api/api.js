@@ -30,19 +30,18 @@ export const AuthApi = {
                     // HeaderContainer
     auth(){
         return  instance.get(`/auth/me`)
-        .then(response =>{
-                        return response
-        })
     }
-
-
 }
 export const ProfileApi = {
-
         setUserProfile(id){
-            return instance.get(`${id}`)
-            .then(response => {
-                return response
-            });
-        }     
+            return instance.get(`profile/${id}`)
+        },
+        getUserStatus(id){
+            return instance.get(`profile/status/${id}`)
+            
+        },
+        updateStatus(status){
+            return instance.put(`profile/status`, {status : status})
+        }    
 }
+         

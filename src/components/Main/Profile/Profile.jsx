@@ -6,12 +6,12 @@ import Info from './Info/Info';
 import styles from './Profile.module.css';
 
 const Profile = (props) => {
-     
+    
     return <div className={styles.profile}>
-                <Avatar avatar={props.ProfileData.photos.small} />
-                <FriendsContainer />
-                <Info ProfileData={props.ProfileData} />
-                <PostsContainer />
+                <Avatar avatar={props.profilePage.ProfileData.photos.small} />
+                <FriendsContainer/>
+               <Info profilePage={props.profilePage}  updateUserStatus = {props.updateUserStatus}/>
+                <PostsContainer />  
             </div>
 
 }

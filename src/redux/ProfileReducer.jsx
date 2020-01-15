@@ -1,7 +1,10 @@
+import { ProfileApi } from "../components/api/api";
+
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
 const SET_USERS_PROFILE = 'SET-USERS-PROFILE';
 const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
+const SET_USER_STATUS= "SET-USER-STATUS";
 
 let initialState = {
 
@@ -25,6 +28,7 @@ let initialState = {
     ],
     newPostText : "",
     isFetching : true,
+    status : '',
 };
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -53,6 +57,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 ProfileData : {...action.profile},
             }
+        case SET_USER_STATUS:
+            return {
+                ...state,
+                status : action.status,
+            }
         case TOGGLE_IS_FETCHING :
             return{
                 ...state,
@@ -63,15 +72,33 @@ const profileReducer = (state = initialState, action) => {
             return { ...state };
     }
 }
+
+
+
 export const AddPostActionCreator = (post) => ({ type: ADD_POST, post });
-export const UpdateNewPostActionCreator = (text) => {
-    return ({
-        type: UPDATE_NEW_POST_TEXT,
-        message: text
-    })
-};
+export const UpdateNewPostActionCreator = (text) =>  ({ type: UPDATE_NEW_POST_TEXT, text });
 export const setUserProfile = (profile) => ({ type: SET_USERS_PROFILE, profile });
 export const isFetching = (isFetching) => ({type : TOGGLE_IS_FETCHING, isFetching })
+export const setStatus = (status) => ({ type: SET_USER_STATUS, status }) ;
 
+// Thunk
+export const getUsersProfile = (userId) => (dispatch) =>{
+    ProfileApi.setUserProfile(userId).then(response => {
+        dispatch(setUserProfile(response.data))
+    });
+}
+
+export const getUserStatus = (userId) => (dispatch) =>{
+    ProfileApi.getUserStatus(userId).then(response => {
+        dispatch(setStatus(response.data))
+    }) ;
+}
+
+
+export const updateUserStatus = (status) => (dispatch) =>{
+    ProfileApi.updateStatus(status).then(response => {
+        dispatch(setStatus(status))
+    });
+}
 
 export default profileReducer;

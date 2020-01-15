@@ -122,7 +122,7 @@ export const followThunk = (id, name ) =>
 
 
 //Thunk 
-export const unfollowThunk = (id, name) => 
+export const unfollowThunk = (id) => 
         {return (dispatch) => {
             dispatch(followingInProgress(true,id));
         

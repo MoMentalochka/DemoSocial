@@ -1,21 +1,22 @@
 import React from 'react'
 import { reduxForm, Field } from 'redux-form'
+import styles from './Login.module.css'
+
 
 const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field name={'login'} placeholder="login" component={'input'} />
+                <Field className={styles.login}  type={"login"} name={'login'} placeholder="login" component={'input'} />
             </div>
             <div>
-                <Field name={'password'} placeholder="Password" component={'input'} />
+                <Field className={styles.login} type={"password"} name={'password'} placeholder="Password" component={'input'} />
             </div>
             <div>
-            <span> <Field type={"checkbox"} name={'rememberMe'} component={'input'} /> remember me</span> 
+             <Field className={styles.check} type={"checkbox"} name={'rememberMe'} component={'input'} /> <span>remember me</span> 
             </div>
-            <div>
-                <button>Login</button>
-            </div>
+                <button className={styles.button}>Login</button>
+
 
         </form>
     )
@@ -26,10 +27,15 @@ const LoginReduxForm = reduxForm({ form: 'login', })(LoginForm);
 const Login = (props) => {
     const onSubmit = (formData) =>{
         console.log(formData);
+        formData.login = '';
+        formData.password = '';
+        formData.rememberMe = false;
     }
-    return <div>  
-        <h1> Login </h1>
-        <LoginReduxForm onSubmit={onSubmit}/>
+    return <div className={styles.loginPage}>
+        <div className={styles.form}>
+            <h1> Авторизация </h1>
+            <LoginReduxForm onSubmit={onSubmit}/>
+        </div>  
     </div>
 }
 

@@ -7,7 +7,7 @@ const Header = (props) => {
     return <header className={styles.header}>
                 <div className={styles.header__logo}> Logo </div>
                 
-                <div className={styles.header_login}> {props.login===null ? "Login" : props.login} </div>
+                <div className={styles.header_login}> {props.login===null ? '' : props.login} </div>
                 
             </header>
 }

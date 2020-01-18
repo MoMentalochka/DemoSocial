@@ -1,18 +1,14 @@
 import React from 'react';
-import {AddMessageActionCreator, UpdateNewMessageTextActionCreator} from '../../../../../redux/DialogReducer';
+import {AddMessageActionCreator,} from '../../../../../redux/DialogReducer';
 import Form from './Form';
     const FormContainer = (props) =>{
         
-        let AddMessage = () =>{
-            props.dispatch(AddMessageActionCreator());
+        let AddMessage = (message) =>{
+            props.dispatch(AddMessageActionCreator(message));
         };
 
-        let UpdateNewMessageText = (text) =>{
-            let action = UpdateNewMessageTextActionCreator(text);
-            props.dispatch(action);
-        };
         
-        return (<Form newMessageText = {props.newMessageText} UpdateNewMessageText = {UpdateNewMessageText} AddMessage = {AddMessage} />)
+        return (<Form onSubmit = {AddMessage} newMessageText = {props.newMessageText}  AddMessage = {AddMessage} />)
     
     }
 

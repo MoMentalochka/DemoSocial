@@ -1,23 +1,27 @@
 import React from 'react';
 import styles from './Form.module.css';
+import { reduxForm, Field } from 'redux-form';
 
-let newMessage = React.createRef();
-    const Form = (props) =>{
-
-        let addMessage = () =>{
-            props.AddMessage();
-        };
-        let OnMessageChange = () =>{
-            let text = newMessage.current.value;
-            props.UpdateNewMessageText(text);
-        };
-        
+    const addForm = (props) =>{
         return (
-            <div className={styles.form}>
-            <textarea placeholder="Напишите сообщение" ref = {newMessage} value={props.newMessageText} onChange = {OnMessageChange}/>
-            <input type="button" onClick={addMessage} value="Отправить"/>
-            </div>
+                <form onSubmit = {props.handleSubmit} className={styles.formS}>
+                    <Field name = "message" className = {styles.textarea} component={'input'} type = {'textarea'} placeholder="Напишите сообщение"  />
+                    <button className={styles.button}> Отправить </button>
+                </form>
         )
     }
 
+    const MessageReduxForm = reduxForm({ form: 'message', })(addForm);
+
+    
+    const Form = (props) => {
+        const onSubmit = (formData) =>{
+            props.AddMessage(formData.message);
+            console.log(formData);
+            formData.message = '';
+        }
+        return <div className={styles.form}>  
+            <MessageReduxForm onSubmit={onSubmit}/>
+        </div>
+    }
 export default Form;

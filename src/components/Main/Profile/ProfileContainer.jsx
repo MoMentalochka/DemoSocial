@@ -11,17 +11,14 @@ import { compose } from 'redux';
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-        
-        let userId = this.props.match.params.userId
-        this.props.getUserStatus(userId)
-        this.props.getUsersProfile(userId)
-       
-        
+        let userId = this.props.match.params.userId;
+        this.props.getUsersProfile(userId);
+        this.props.getUserStatus(userId);
     }
-
+    
     render()  {
-            return ( this.props.isAuth & !this.props.profilePage.ProfileData ?  <Preloader /> :  <Profile profilePage = {this.props.profilePage} updateUserStatus = {this.props.updateUserStatus} />)
-  
+            return ( this.props.isAuth & !this.props.profilePage.ProfileData ?  <Preloader /> :  <Profile profilePage = {this.props.profilePage} updateUserStatus = {this.props.updateUserStatus} />);
+            
     }
     
 }

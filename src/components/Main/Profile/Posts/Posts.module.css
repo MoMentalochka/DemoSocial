@@ -12,20 +12,19 @@
     border-radius: 15px;
     overflow: hidden;
   }
-input {
-    display: flex;
-    border: transparent;
-    background: rgb(245, 191, 238);
-    padding: 10px;
-  }
-input:focus{
-    background: rgb(81, 206, 43);
-  }
-  
-textarea{
-    border: transparent;
-    padding: 15px 0 0 20px ;
-    display: flex;
-    resize: none;
+  .textarea{
+    border: none;
+    padding-left: 10px;
+    background: white;
     width: 90%;
+  }
+  .textarea:focus{
+    background: white;
+  }
+  .button{
+    background-color: rgb(73, 240, 73);
+    padding-left: 5px;
+    display: flex;
+    border: none;
+    height: 40px;
   }

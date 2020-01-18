@@ -1,28 +1,27 @@
 import React from 'react';
 import styles from './Posts.module.css';
+import { Field, reduxForm } from 'redux-form';
 
+const addForm = (props) =>{
+    return (
+        <form onSubmit = {props.handleSubmit} className={styles.form}>
+            <Field className={styles.textarea} component={'input'} type = {'textarea'} name="post" className={styles.textarea} placeholder="Напишите что-нибудь" />
+            <button className={styles.button}> Отправить </button>
+        </form>
+    )
+}
+const PostReduxForm = reduxForm({ form: 'post', })(addForm);
 
 const Posts = (props) =>{
-   
-        // Данные для поста в пропсах
-    let newPostElement = React.createRef();
-
-    let OnAddPost = () => {
-        props.addPost();
-    };
-
-    let onPostChange = () =>{
-        let text = newPostElement.current.value;
-        props.UpdateNewPostActionCreator(text);
+    const onSubmit = (formData) =>{
+        props.addPost(formData.post);
+        console.log(formData);
+        formData.post = '';
     }
     return (
-        <div className={styles.posts}>
-        <div className={styles.form}>
-            <textarea placeholder="Напишите что-нибудь" ref = {newPostElement} value={props.newPostText} onChange={onPostChange} />
-            <input type="button" onClick={OnAddPost} value="Запостить"/>
-            </div>
-            {props.PostElements }
-        
+        <div >
+            <PostReduxForm onSubmit={onSubmit} />
+            {props.PostElements}
         </div>
     )
     

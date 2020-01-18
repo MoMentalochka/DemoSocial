@@ -1,6 +1,6 @@
 import { ProfileApi } from "../components/api/api";
+import Userlogo from '../Img/User.jpg'
 
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
 const SET_USERS_PROFILE = 'SET-USERS-PROFILE';
 const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
@@ -26,7 +26,6 @@ let initialState = {
         { id: '5', name: 'Alexei', second__name: 'Michailov', avatar: 'https://s1.1zoom.ru/big3/718/422583-blackangel.jpg' },
         { id: '6', name: 'Oleg', second__name: 'Radzievskiy',  avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' },
     ],
-    newPostText : "",
     isFetching : true,
     status : '',
 };
@@ -36,21 +35,15 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST:
             let newPost = {
                 id: 5595,
-                name: "d" ,
+                name: "MoMentalochka" ,
                 second__name: null,
                 like_counter: 0,
-                message: state.newPostText,
-                avatar: 'https://avatars.mds.yandex.net/get-pdb/989459/fb1ea292-9a7b-4880-878d-dbed2c534716/s1200?webp=false'
+                message: action.text,
+                avatar: Userlogo
             };
             return {
                 ...state,
                 PostsData: [...state.PostsData, { ...newPost }],
-                newPostText: "",
-            }
-        case UPDATE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPostText: action.message,
             }
         case SET_USERS_PROFILE:
             return {
@@ -75,10 +68,9 @@ const profileReducer = (state = initialState, action) => {
 
 
 
-export const AddPostActionCreator = (post) => ({ type: ADD_POST, post });
-export const UpdateNewPostActionCreator = (text) =>  ({ type: UPDATE_NEW_POST_TEXT, text });
+export const AddPostActionCreator = (text) => ({ type: ADD_POST, text });
 export const setUserProfile = (profile) => ({ type: SET_USERS_PROFILE, profile });
-export const isFetching = (isFetching) => ({type : TOGGLE_IS_FETCHING, isFetching })
+export const isFetching = (isFetching) => ({type : TOGGLE_IS_FETCHING, isFetching });
 export const setStatus = (status) => ({ type: SET_USER_STATUS, status }) ;
 
 // Thunk
@@ -96,7 +88,7 @@ export const getUserStatus = (userId) => (dispatch) =>{
 
 
 export const updateUserStatus = (status) => (dispatch) =>{
-    ProfileApi.updateStatus(status).then(response => {
+    ProfileApi.updateStatus(status).then(() => {
         dispatch(setStatus(status))
     });
 }

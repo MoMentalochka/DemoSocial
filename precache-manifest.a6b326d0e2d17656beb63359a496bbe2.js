@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d0117b9e282778dfa4a3998adf74f26c",
+    "revision": "b18f561cbb781dd601175a5c19e713ea",
     "url": "/DemoSocial/index.html"
   },
   {
-    "revision": "69341cae69c4ec7edd56",
-    "url": "/DemoSocial/static/css/main.fecc796b.chunk.css"
+    "revision": "7cdfe91b9a6e84e3f3a9",
+    "url": "/DemoSocial/static/css/main.6c68db99.chunk.css"
   },
   {
-    "revision": "8310a0221e3e403eabd8",
-    "url": "/DemoSocial/static/js/2.149375d6.chunk.js"
+    "revision": "0561dc2343ea5bf85b8f",
+    "url": "/DemoSocial/static/js/2.94c0d5f0.chunk.js"
   },
   {
     "revision": "e928fe768baa9832b5bc57eae021f30c",
-    "url": "/DemoSocial/static/js/2.149375d6.chunk.js.LICENSE"
+    "url": "/DemoSocial/static/js/2.94c0d5f0.chunk.js.LICENSE"
   },
   {
-    "revision": "69341cae69c4ec7edd56",
-    "url": "/DemoSocial/static/js/main.37c34d14.chunk.js"
+    "revision": "7cdfe91b9a6e84e3f3a9",
+    "url": "/DemoSocial/static/js/main.d3bb442f.chunk.js"
   },
   {
     "revision": "112a87d55a05c207d6f8",

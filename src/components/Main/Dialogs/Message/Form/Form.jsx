@@ -1,12 +1,18 @@
 import React from 'react';
 import styles from './Form.module.css';
 import { reduxForm, Field } from 'redux-form';
-
+import { required, maxlength } from './../../../../Utility/Validation/validators';
+import { Textarea } from './../../../../FormControlers/FormComponents';
+let limit = 100;
     const addForm = (props) =>{
         return (
-                <form onSubmit = {props.handleSubmit} className={styles.formS}>
-                    <Field name = "message" className = {styles.textarea} component={'input'} type = {'textarea'} placeholder="Напишите сообщение"  />
-                    <button className={styles.button}> Отправить </button>
+                <form onSubmit = {props.handleSubmit}>
+                    <Field name = "message" 
+                        component = {Textarea} 
+                        type = {'textarea'} 
+                        placeholder = "Write something"  
+                        validate = {[required,maxlength]}
+                    />
                 </form>
         )
     }

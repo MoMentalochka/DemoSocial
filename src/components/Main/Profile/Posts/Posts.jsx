@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Posts.module.css';
 import { Field, reduxForm } from 'redux-form';
 import { Textarea } from './../../../FormControlers/FormComponents';
 import { required, maxlength } from './../../../Utility/Validation/validators';

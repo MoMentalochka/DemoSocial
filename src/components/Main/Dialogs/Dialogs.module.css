@@ -11,11 +11,12 @@
     grid-template-columns: 4fr 10fr;
 }
 .massages_list{
+  flex-direction: column;
   display: flex;
   flex-wrap: wrap;
-  max-height: 460px;
+  max-height: 480px;
   overflow-y: scroll;
   overflow-X: hidden;
-  width: 100%;
+  width: inherit;
 }
 

@@ -1,58 +1,87 @@
-.formS{
-    width: 98%;
+.formT{
+    margin-top: 10px;
+    width: inherit;
     display: flex;
-    border-radius: 5px;
+    border-radius: 15px;
     margin-left: 8px;
     height: 43px;
+    border: 2px solid darkturquoise;
 }
-
+.formI{
+    width: inherit;
+    display: flex;
+    border-radius: 15px;
+    margin-left: 8px;
+    height: 43px;
+    outline: none;
+}
 .button{
-  border: 2px solid #000;
-  background-color: rgb(73, 240, 73);
+  /* border: 2px solid darkturquoise; */
+  border : none;
+  border-radius:  0px  10px 10px 0px   ;
+  background-color: darkturquoise;
   padding-left: 5px;
   display:  inline-flex;
   height: 44px;
+  transition:all 0.3s ease;
+  outline: none;
+}
+.button:hover{
+    background-color: rgb(73, 240, 73);
 }
 .textarea{
     resize: none;
-    border-radius: 5px;
+    border-radius: 10px 0px 0px 10px  ;
     display: inline-flex;
-    border: 2px solid darkturquoise;
+    /* border: 2px solid darkturquoise; */
+    border : none;
     padding-left: 10px;
     background: white;
     min-width: 400px;
     width: 90%;
-    height: 40px;
+    height: 44px;
+    outline: none;
+    transition:all 0.3s ease;
 }
 .textarea:focus{
-    background: white;
-}
+    background: rgb(226, 221, 221);
 
+}
 .withError{
-    border: 2px solid red;
-    color:red;
+    border: 3px solid red;
 }
 .error{
+    width: max-content;
     display: flex;
-    color: red;
-    padding-left: 20px;
+    color: rgb(2, 0, 0);
+    margin-left: 13px;
+    transition:all 0.3s ease;
+    background: rgb(226, 8, 8);
+    border-radius: 0px 0px 10px 10px  ;
+    padding: 7px;
+    margin-top: -7px;
 }
 .withError.button{
+    border: none;
     background: red;
     color: white;
 }
 
 .login{
     font-style: italic;
-    box-sizing: border-box;
+    
     border: none;
-    margin: 5px;
+    margin-top: 5px;
     height: 30px;
     width: 200px;
     padding-left: 10%;
+    outline: none;
+    transition:all 0.3s ease;
 }
 .login:focus{
     font-style: normal;
     border: 1px solid rgb(31, 211, 231);
-
+}
+.login.withError{
+    border: 1px solid red;
 }

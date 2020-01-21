@@ -1,5 +1,5 @@
 import React from 'react';
-import { Auth} from '../../redux/AuthReducer'
+import { AuthThunk, LogoutThunk } from '../../redux/AuthReducer'
 import Header from './Header';
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom';
@@ -8,10 +8,10 @@ import { withRouter } from 'react-router-dom';
 class HeaderContainer extends React.Component {
    
     componentDidMount() {
-        this.props.Auth()
+        this.props.AuthThunk()
     }
     render() {
-        return <Header {...this.props.state.Auth} />
+        return <Header {...this.props.state.Auth}  LogoutThunk={this.props.LogoutThunk}  />
     }
 }
 let mapStateToProps = (state) =>{
@@ -20,4 +20,4 @@ let mapStateToProps = (state) =>{
         
     }
 }
-export default connect (mapStateToProps, {Auth} )(withRouter(HeaderContainer))
+export default connect (mapStateToProps, {AuthThunk,LogoutThunk } )(withRouter(HeaderContainer))

@@ -3,7 +3,6 @@ import styles from './Form.module.css';
 import { reduxForm, Field } from 'redux-form';
 import { required, maxlength } from './../../../../Utility/Validation/validators';
 import { Textarea } from './../../../../FormControlers/FormComponents';
-let limit = 100;
     const addForm = (props) =>{
         return (
                 <form onSubmit = {props.handleSubmit}>

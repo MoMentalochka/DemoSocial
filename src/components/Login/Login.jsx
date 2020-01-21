@@ -29,13 +29,16 @@ const LoginForm = (props) =>{
                         />
             </div>
 
+            {props.error && <div className={styles.error}>{props.error} </div>}
+
             <div>
                 <Field  type={"checkbox"} 
                         name={'rememberMe'} 
                         component={'input'} /> 
+                       
                 <span>remember me</span> 
             </div>
-
+            
                 <button className={styles.button}>Login</button>
 
 

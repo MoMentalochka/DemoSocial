@@ -10,7 +10,7 @@ let mapStateToProps = (state)=>{
     let DialogsItems=
     state.dialogsPage.usersData.map(u => <DialogsItem key={u.id} name={u.name} second__name={u.second__name} id={u.id} avatar={u.avatar}/>);
     let Messages=
-    state.dialogsPage.MessagesData.map(m => <Message key={m.id} message={m.message} id={m.id}/>);
+    state.dialogsPage.MessagesData.map(m => <Message key={m.id} message={m.message} id={m.id}/>).reverse();
     return {
         DialogsItems : DialogsItems,
         Messages : Messages,

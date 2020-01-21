@@ -1,5 +1,6 @@
-
 import { AuthApi } from './../components/api/api';
+import { stopSubmit } from 'redux-form';
+
 const Log_in = 'Log-in';
 const Log_out = 'Log-out';
 let initialState ={
@@ -45,8 +46,12 @@ export const AuthThunk = () => {
 export const LoginThunk = (email, password, rememberMe) => {
     return (dispatch)=>{
         AuthApi.login(email, password, rememberMe).then((response)=> {
-            console.log(response.data.data)
-            dispatch(AuthThunk())
+            if (response.data.resultCode === 0){
+                dispatch(AuthThunk())
+            }
+            else {
+                dispatch(stopSubmit("login", {_error : response.data.messages.pop()}))
+            }
         });  
     }
 }

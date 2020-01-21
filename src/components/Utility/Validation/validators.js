@@ -8,7 +8,7 @@ export const required = (value) => {
 
 export const maxlength = (value) => {
 
-    if( value && value.length > 100 ) return"Max length is 100" ;
+    if( value && value.length > 200 ) return"Max length is 200" ;
     return undefined;
  }
 

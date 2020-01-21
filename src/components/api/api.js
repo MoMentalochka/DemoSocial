@@ -51,6 +51,13 @@ export const ProfileApi = {
         },
         updateStatus(status){
             return instance.put(`profile/status`, {status : status})
-        }    
+        },
+        updatePhoto(formData){
+            instance.post(`profile/photo`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })      
+
+        }
 }
-         

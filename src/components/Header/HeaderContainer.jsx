@@ -11,7 +11,7 @@ class HeaderContainer extends React.Component {
         this.props.AuthThunk()
     }
     render() {
-        return <Header {...this.props.state.Auth}  LogoutThunk={this.props.LogoutThunk}  />
+        return <Header {...this.props.state}  LogoutThunk={this.props.LogoutThunk}  />
     }
 }
 let mapStateToProps = (state) =>{

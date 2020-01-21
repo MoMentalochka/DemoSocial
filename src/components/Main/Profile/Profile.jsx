@@ -8,7 +8,7 @@ import styles from './Profile.module.css';
 const Profile = (props) => {
     
     return <div className={styles.profile}>
-                <Avatar avatar={props.profilePage.ProfileData.photos.small} />
+                <Avatar avatar={props.profilePage.ProfileData.photos.large} />
                 <FriendsContainer/>
                 <Info profilePage={props.profilePage}  updateUserStatus = {props.updateUserStatus}/>
                 <PostsContainer />  

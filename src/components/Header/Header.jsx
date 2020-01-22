@@ -11,7 +11,7 @@ const Header = (props) => {
                 <div className={styles.header_login}> {props.Auth.login===null 
                 ? <Redirect to='login'/> 
                 : <div className = {styles.header_form}>  
-                    <div className={styles.login}>{props.Auth.login} { (props.Auth.login && props.profilePage.ProfileData) && <img src={props.profilePage.ProfileData.photos.large} alt="photo" className={styles.photo}/>}</div> 
+                    <div className={styles.login}>{props.Auth.login} { (props.Auth.login && props.profilePage.ProfileData) && <img src={props.profilePage.ProfileData.photos.large} alt="ph" className={styles.photo}/>}</div> 
                     {props.Auth.login && <button className = {styles.button} onClick={()=>{props.LogoutThunk()}}> Logout</button>}
                  </div> } 
                  </div>

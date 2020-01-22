@@ -38,10 +38,13 @@ const AuthReducer = (state = initialState, action) => {
 export const AuthThunk = () => {
     return (dispatch)=>{
         AuthApi.auth().then(response => {
-            let data = {...response.data}
-            dispatch(Auth(data))
-        });  
+            let data = {...response.data};
+            dispatch(Auth(data));
+            
+        }); 
+        return 'yo'; 
     }
+
 }
 export const LoginThunk = (email, password, rememberMe) => {
     return (dispatch)=>{

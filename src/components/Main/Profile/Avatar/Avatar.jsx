@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Avatar.module.css';
 import UserPhoto from '../../../../Img/User.jpg' 
-import {ProfileApi} from '../../../api/api'
+// import {ProfileApi} from '../../../api/api'
 
 // let update = () =>{
 //     let formData = new FormData();

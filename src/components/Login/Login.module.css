@@ -18,6 +18,9 @@
     display: block;
     
 }
+.form p{
+   font-size: 20px;
+}
 
 .button{
     justify-content: center;

@@ -22,7 +22,7 @@ const LoginForm = (props) =>{
 
             <div>
                 <Field  type={"password"} 
-                        name={'password'} 
+                        name={'password'} zz
                         placeholder="Password" 
                         component={Input} 
                         validate = {[required ,maxlength16 ]}
@@ -63,7 +63,9 @@ const Login = (props) => {
             <div className={styles.form}>
                 <h1> Авторизация </h1>
                 <LoginReduxForm onSubmit={onSubmit}/>
+                <p> Тестовые данные: <br/> Login: free@samuraijs.com <br/> Password: free</p>
             </div>  
+            
         </div>
     )
     return <Redirect to = {`/profile/${props.state.id}`}/>

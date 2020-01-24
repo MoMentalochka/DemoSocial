@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Info.module.css';
-import Status from './status';
+import StatusWithHooks from './statusNew';
 
 const Info = (props) =>{
     return <div className={styles.info}>
         <div className={styles.text}>
             <h3>{props.profilePage.ProfileData.fullName}</h3>
-           <Status status = {props.profilePage.status} updateUserStatus = {props.updateUserStatus} />
+           <StatusWithHooks status = {props.profilePage.status} updateUserStatus = {props.updateUserStatus} />
         </div>
     </div>
 

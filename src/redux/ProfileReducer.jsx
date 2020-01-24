@@ -27,7 +27,7 @@ let initialState = {
         { id: '6', name: 'Oleg', second__name: 'Radzievskiy',  avatar: 'https://avatars.mds.yandex.net/get-pdb/51720/15939212-1cf3-4007-8ada-e476aafdbcf2/s1200?webp=false' },
     ],
     isFetching : true,
-    status : '',
+    status : null,
 };
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {

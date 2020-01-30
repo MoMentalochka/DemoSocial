@@ -73,8 +73,10 @@ export const setStatus = (status) => ({ type: SET_USER_STATUS, status }) ;
 
 //====== Thunks ======
 export const getUsersProfile = (userId) => async (dispatch) =>{
+    dispatch(isFetching(true))
     let response = await ProfileApi.setUserProfile(userId)
         dispatch(setUserProfile(response.data))
+        dispatch(isFetching(false))
 
 }
 

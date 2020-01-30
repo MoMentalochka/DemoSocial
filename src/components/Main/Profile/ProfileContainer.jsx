@@ -17,7 +17,7 @@ class ProfileContainer extends React.Component {
     }
     
     render()  {
-            return ( this.props.isAuth & !this.props.profilePage.ProfileData ?  <Preloader /> :  <Profile profilePage = {this.props.profilePage} updateUserStatus = {this.props.updateUserStatus} />);
+            return ( this.props.isAuth & this.props.profilePage.isFetching ?  <Preloader /> :  <Profile profilePage = {this.props.profilePage} updateUserStatus = {this.props.updateUserStatus} />);
             
     }
     

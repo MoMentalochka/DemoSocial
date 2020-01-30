@@ -22,7 +22,7 @@ const StatusWithHooks = (props) => {
         <div>
             {!editMode &&
                 <div className={styles.status}>
-                    <p onDoubleClick={() => SetEditMode(true)}>  {props.status ? props.status : "Изменить статус"} </p>
+                    <p onClick={() => SetEditMode(true)}>  {props.status ? props.status : "Изменить статус"} </p>
                 </div>
             }
             {editMode &&

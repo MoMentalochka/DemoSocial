@@ -33,7 +33,6 @@ const LoginForm = (props) =>{
                     name={'rememberMe'}
                     component={'input'} />
                 <span>remember me</span>
-                />
             </div>
 
                 <button className={styles.button}>Login</button>

@@ -11,7 +11,7 @@ let initialState ={
     usersData : [],
     currentPage : 1,
     totalCount : 0,
-    pageSize : 10,
+    pageSize : 8,
     isFetching : true,
     following : []
 };
@@ -83,58 +83,37 @@ const UsersReducer = (state = initialState, action) => {
             
             }
     }
-
 };
 
+//====== Thunks ======
+export const getUsers = (currentPage, pageSize) => async (dispatch) => {
+    dispatch(isFetching(true));
+    let response = await UsersApi.getUsers(currentPage, pageSize)
+    dispatch(setUsers(response.items))
+    dispatch(setTotalCount(response.totalCount))
+    dispatch(setCurrentPage(currentPage))
+    dispatch(isFetching(false))
+}
 
-//Thunk 
-export const getUsers = (currentPage, pageSize) => 
-        {return (dispatch) => {
-            dispatch(isFetching(true));
+export const followThunk = (id) => async (dispatch) => {
+    dispatch(followingInProgress(true, id));
 
-            UsersApi.getUsers(currentPage ,pageSize).then(response => {
-                dispatch(setUsers(response.items))
-                dispatch(setTotalCount(response.totalCount))
-                dispatch(isFetching(false))
-                dispatch(setCurrentPage(currentPage))
-            });
+    let response = await FollowApi.followApi(id)
+    if (response.data.resultCode === 0) {
+        dispatch(follow(id));
     }
-
+    dispatch(followingInProgress(false, id))
 }
 
 
-//Thunk 
-export const followThunk = (id, name ) => 
-        {return (dispatch) => {
-            dispatch(followingInProgress(true,id));
-        
-            FollowApi.followApi(id).then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(follow(id));
-                    // alert('Теперь ' + name + ' ваш друг')
-                }
-                dispatch(followingInProgress(false, id))
-            });
+export const unfollowThunk = (id) => async (dispatch) => {
+    dispatch(followingInProgress(true, id));
+
+    let response = await FollowApi.unfollowApi(id)
+    if (response.data.resultCode === 0) {
+        dispatch(unfollow(id));
     }
-
-}
-
-
-
-//Thunk 
-export const unfollowThunk = (id) => 
-        {return (dispatch) => {
-            dispatch(followingInProgress(true,id));
-        
-            FollowApi.unfollowApi(id).then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(unfollow(id));
-                    // alert('Вы отписались от ' + name )
-                }
-                dispatch(followingInProgress(false, id))
-            });
-    }
-
+    dispatch(followingInProgress(false, id))
 }
 
 

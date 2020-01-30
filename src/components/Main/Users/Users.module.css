@@ -6,16 +6,5 @@
     text-align: center;
    
   }
-.activePage {
-  padding: 5px;
-  cursor: no-drop;
-  color: rgb(247, 210, 46);
-  font-weight: bold;
-}
 
-.Page {
-  
-  cursor: pointer;
-  margin: 5px;
-}
 

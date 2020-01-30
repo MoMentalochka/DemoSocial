@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Form.module.css';
 import { reduxForm, Field } from 'redux-form';
-import { required, maxlength } from './../../../../Utility/Validation/validators';
+import { required, maxlength } from './../../../../Validation/validators';
 import { Textarea } from './../../../../FormControlers/FormComponents';
     const addForm = (props) =>{
         return (

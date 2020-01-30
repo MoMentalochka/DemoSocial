@@ -1,0 +1,19 @@
+.activePage {
+    padding: 5px;
+    cursor: no-drop;
+    color: rgb(247, 210, 46);
+    font-weight: bold;
+  }
+  
+  .Page {
+    cursor: pointer;
+    margin: 5px;
+  }
+
+.btn{
+ height: 30px;
+ border-radius: 5px;
+}
+.btn:hover{
+    background: rgb(247, 210, 46);
+   }

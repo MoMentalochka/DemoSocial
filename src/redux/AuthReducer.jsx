@@ -3,14 +3,15 @@ import { stopSubmit } from 'redux-form';
 
 const Log_in = 'Log-in';
 const Log_out = 'Log-out';
+
 let initialState ={
     id : null,
     email : null,
     login : null,
     auth : false,
 };
-const AuthReducer = (state = initialState, action) => {
 
+const AuthReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case Log_in:
@@ -34,37 +35,29 @@ const AuthReducer = (state = initialState, action) => {
     };
 
 };
-//Thunk 
-export const AuthThunk = () => {
-    return (dispatch)=>{
-        AuthApi.auth().then(response => {
+
+//====== Thunks ======
+export const AuthThunk = () => async (dispatch)=>{
+        let response = await AuthApi.auth()
             let data = {...response.data};
             dispatch(Auth(data));
-            
-        }); 
         return 'yo'; 
-    }
+}
+export const LoginThunk = (email, password, rememberMe) => async (dispatch) => {
+    let response = await AuthApi.login(email, password, rememberMe)
 
-}
-export const LoginThunk = (email, password, rememberMe) => {
-    return (dispatch)=>{
-        AuthApi.login(email, password, rememberMe).then((response)=> {
-            if (response.data.resultCode === 0){
-                dispatch(AuthThunk())
-            }
-            else {
-                dispatch(stopSubmit("login", {_error : response.data.messages.pop()}))
-            }
-        });  
+    if (response.data.resultCode === 0) {
+        dispatch(AuthThunk())
+    }
+    else {
+        dispatch(stopSubmit("login", { _error: response.data.messages.pop() }))
     }
 }
-export const LogoutThunk = () => {
-    return (dispatch)=>{
-        AuthApi.logout().then((response)=> {
-            dispatch(Logout())
-        });  
-    }
+export const LogoutThunk = () => async (dispatch) => {
+    let response = await AuthApi.logout()
+    dispatch(Logout())
 }
+
 export const Auth = (data) => ({ type: Log_in, data});
 export const Logout = () => ({ type: Log_out,});
         

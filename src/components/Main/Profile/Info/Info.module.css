@@ -17,6 +17,15 @@ grid-area: r;
     opacity: 0.4;
 }
 .status{
+    width: 95%;
     cursor: pointer;
 }
-  
+.status:hover{
+   background: rgb(236, 234, 234);
+}
+
+.status input{
+    width: 100%;
+    border: none;
+    outline: none;
+}

@@ -36,9 +36,9 @@ const dialogReducer = (state = initialState, action) => {
     };
 
 };
+
+
 // Обработчики событий Dialogs
 export const AddMessageActionCreator = (message) => ({ type: ADD_MESSAGE, message });
-
-
         
 export default dialogReducer;

@@ -66,24 +66,21 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-
-
 export const AddPostActionCreator = (text) => ({ type: ADD_POST, text });
 export const setUserProfile = (profile) => ({ type: SET_USERS_PROFILE, profile });
 export const isFetching = (isFetching) => ({type : TOGGLE_IS_FETCHING, isFetching });
 export const setStatus = (status) => ({ type: SET_USER_STATUS, status }) ;
 
-// Thunk
-export const getUsersProfile = (userId) => (dispatch) =>{
-    ProfileApi.setUserProfile(userId).then(response => {
+//====== Thunks ======
+export const getUsersProfile = (userId) => async (dispatch) =>{
+    let response = await ProfileApi.setUserProfile(userId)
         dispatch(setUserProfile(response.data))
-    });
+
 }
 
-export const getUserStatus = (userId) => (dispatch) =>{
-    ProfileApi.getUserStatus(userId).then(response => {
+export const getUserStatus = (userId) => async (dispatch) =>{
+    let response = await ProfileApi.getUserStatus(userId)
         dispatch(setStatus(response.data))
-    }) ;
 }
 
 

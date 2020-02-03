@@ -9,9 +9,6 @@ import { useState } from 'react';
     let [blokNumber, setBlokNumber] = useState(1);
 
 //========= Определяем текущий блок в завизимости от номера страницы =========
-    useEffect(() => {
-        setBlokNumber(Math.ceil(props.currentPage / blokSize))
-    }, [props.currentPage])
 
     let PagesCount = Math.ceil(props.totalCount / props.pageSize);
     let pages = [];
@@ -25,8 +22,13 @@ import { useState } from 'react';
     let leftbar = (blokNumber - 1) * blokSize + 1;
     let rightbar = (blokNumber) * blokSize;
     let Paginator =
-        pages.filter(p => p >= leftbar && p <= rightbar).map(p => { return <span className={props.currentPage === p ? styles.activePage : styles.Page} onClick={() => props.setCurrentPage(p)}> {p} </span> })
-//====== возвращием готовый JSX ============
+        pages.filter(p => p >= leftbar && p <= rightbar).map(p => { return <span key={p} className={props.currentPage === p ? styles.activePage : styles.Page} onClick={() => props.setCurrentPage(p)}> {p} </span> })
+
+        useEffect(() => {
+            setBlokNumber(Math.ceil(props.currentPage / blokSize))
+        }, [props.currentPage, blokSize])
+
+        //====== возвращием готовый JSX ============
         return (
             <div>
                 {blokNumber > 1 && <button className={styles.btn} onClick={() => { setBlokNumber(blokNumber - 1); props.setCurrentPage(leftbar - 1) }}>Назад</button>}

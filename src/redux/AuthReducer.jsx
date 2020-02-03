@@ -54,7 +54,7 @@ export const LoginThunk = (email, password, rememberMe) => async (dispatch) => {
     }
 }
 export const LogoutThunk = () => async (dispatch) => {
-    let response = await AuthApi.logout()
+     await AuthApi.logout()
     dispatch(Logout())
 }
 

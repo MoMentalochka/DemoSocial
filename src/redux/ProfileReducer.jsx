@@ -34,7 +34,7 @@ const profileReducer = (state = initialState, action) => {
 
         case ADD_POST:
             let newPost = {
-                id: 5595,
+                id: Math.random(),
                 name: "MoMentalochka" ,
                 second__name: null,
                 like_counter: 0,

@@ -1,10 +1,10 @@
-import React from 'react'
-import { reduxForm, Field } from 'redux-form'
-import styles from './Login.module.css'
-import { Input } from '../FormControlers/FormComponents'
+import React from 'react';
+import { reduxForm } from 'redux-form';
+import styles from './Login.module.css';
+import { Input } from '../FormControlers/FormComponents';
 import { required, maxlength16, maxlength, email } from '../Validation/validators';
 import { connect } from 'react-redux';
-import { LoginThunk} from '../../redux/AuthReducer'
+import { LoginThunk} from '../../redux/AuthReducer';
 import { Redirect } from 'react-router-dom';
 import { FieldCreator } from '../common/FieldCreator';
 

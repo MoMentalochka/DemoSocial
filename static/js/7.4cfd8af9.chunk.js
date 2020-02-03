@@ -1,0 +1,2 @@
+(this["webpackJsonpmy-react-01"]=this["webpackJsonpmy-react-01"]||[]).push([[7],{298:function(t,e,s){t.exports={settings:"Settings_settings__1oLhY"}},308:function(t,e,s){"use strict";s.r(e);var n=s(0),a=s.n(n),i=s(298),c=s.n(i),r=s(96);e.default=Object(r.a)((function(){return a.a.createElement("div",{className:c.a.settings},"Settings")}))}}]);
+//# sourceMappingURL=7.4cfd8af9.chunk.js.map

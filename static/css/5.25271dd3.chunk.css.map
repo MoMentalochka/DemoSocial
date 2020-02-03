@@ -1,0 +1,1 @@
+{"version":3,"sources":["Music.module.css"],"names":[],"mappings":"AAAA,oBACI,WAAY,CACZ,YAAa,CACb,UAAW,CACX,WAEF","file":"5.25271dd3.chunk.css","sourcesContent":[".music{\r\n    grid-area: c;\r\n    padding: 10px;\r\n    width: 100%;\r\n    height: 100%;\r\n   \r\n  }\r\n"]}

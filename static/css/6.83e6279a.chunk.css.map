@@ -1,0 +1,1 @@
+{"version":3,"sources":["News.module.css"],"names":[],"mappings":"AAAA,kBACI,WAAY,CACZ,YAAa,CACb,UAAW,CACX,WAEF","file":"6.83e6279a.chunk.css","sourcesContent":[".news{\r\n    grid-area: c;\r\n    padding: 10px;\r\n    width: 100%;\r\n    height: 100%;\r\n   \r\n  }\r\n"]}

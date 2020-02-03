@@ -1,0 +1,1 @@
+{"version":3,"sources":["Settings.module.css"],"names":[],"mappings":"AAAA,0BACI,WAAY,CACZ,YAAa,CACb,UAAW,CACX,WAEF","file":"7.c854c1a7.chunk.css","sourcesContent":[".settings{\r\n    grid-area: c;\r\n    padding: 10px;\r\n    width: 100%;\r\n    height: 100%;\r\n   \r\n  }\r\n"]}
